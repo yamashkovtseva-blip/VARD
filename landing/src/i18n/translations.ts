@@ -242,7 +242,7 @@ export const translations = {
     },
     footer: {
       tagline: 'The open-source data notebook with a local AI assistant. Self-hosted by design.',
-      copyright: "© 2026 Vard, Inc. · Built for data teams who can't go cloud.",
+      copyright: "© 2026 Vard · Built for data teams who can't go cloud.",
       madeWith: 'Made with ☕ and a healthy distrust of the cloud.',
       cols: [
         { title: 'Product', links: ['Notebooks', 'Collaboration', 'Local AI', 'Connectors', 'Security', 'Pricing'] },
@@ -493,7 +493,7 @@ export const translations = {
     },
     footer: {
       tagline: 'Open-source ноутбук для данных с локальным AI. Self-hosted by design.',
-      copyright: '© 2026 Vard, Inc. · Сделано для data-команд, которым нельзя в облако.',
+      copyright: '© 2026 Vard · Сделано для data-команд, которым нельзя в облако.',
       madeWith: 'Сделано на ☕ и здоровом недоверии к облаку.',
       cols: [
         { title: 'Продукт', links: ['Ноутбуки', 'Коллаборация', 'Локальный AI', 'Коннекторы', 'Безопасность', 'Тарифы'] },
