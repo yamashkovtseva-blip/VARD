@@ -165,12 +165,11 @@ layout: default
 <div class="grid grid-cols-2 gap-5 mt-8">
 
 <div class="card">
-  <span class="eyebrow !text-teal-light">Интеграции</span>
+  <span class="eyebrow !text-teal-light">Интеграции и desktop</span>
   <ul class="text-sm dim space-y-2 mt-3">
     <li class="flex gap-2"><span class="teal">·</span><span><b class="text-chalk">dbt integration</b> · обязательно для US data community</span></li>
-    <li class="flex gap-2"><span class="teal">·</span><span>ClickHouse коннектор</span></li>
-    <li class="flex gap-2"><span class="teal">·</span><span>Redshift коннектор</span></li>
-    <li class="flex gap-2"><span class="teal">·</span><span>Databricks коннектор</span></li>
+    <li class="flex gap-2"><span class="teal">·</span><span>ClickHouse · Redshift · Databricks коннекторы</span></li>
+    <li class="flex gap-2"><span class="teal">·</span><span><b class="text-chalk">Tauri desktop wrapper</b> · .dmg / .exe / .AppImage beta</span></li>
   </ul>
 </div>
 
@@ -206,6 +205,7 @@ layout: default
   <span class="eyebrow !text-teal-light">Технические</span>
   <ul class="text-sm dim space-y-2 mt-3">
     <li class="flex gap-2"><span class="teal">·</span><span><b class="text-chalk">Vard Cloud GA</b></span></li>
+    <li class="flex gap-2"><span class="teal">·</span><span><b class="text-chalk">Tauri desktop GA</b> · auto-update · code signing · Mac/Win/Linux</span></li>
     <li class="flex gap-2"><span class="teal">·</span><span><b class="text-chalk">SOC 2 Type II</b> audit (полноценный)</span></li>
     <li class="flex gap-2"><span class="teal">·</span><span>Air-gapped deploy guide</span></li>
     <li class="flex gap-2"><span class="teal">·</span><span>SCIM provisioning</span></li>
@@ -223,6 +223,50 @@ layout: default
   </ul>
 </div>
 
+</div>
+
+---
+layout: default
+---
+
+# Дистрибуция · server-mode и desktop-mode
+
+<div class="grid grid-cols-2 gap-5 mt-6">
+
+<div class="card">
+  <span class="eyebrow !text-teal-light">Server-mode · Docker / Helm</span>
+  <h3 class="!text-chalk !text-base !mb-2">Для команд (5+ человек)</h3>
+  <ul class="text-sm dim space-y-1.5 mt-3">
+    <li class="flex gap-2"><span class="teal">·</span><span><b class="text-chalk">Установка</b> · <code class="!text-xs">docker compose up</code> · одна команда</span></li>
+    <li class="flex gap-2"><span class="teal">·</span><span><b class="text-chalk">Где живёт</b> · VM, on-prem сервер, K8s-кластер</span></li>
+    <li class="flex gap-2"><span class="teal">·</span><span><b class="text-chalk">Доступ</b> · браузер на <code class="!text-xs">localhost:5173</code> или <code class="!text-xs">vard.company.internal</code></span></li>
+    <li class="flex gap-2"><span class="teal">·</span><span><b class="text-chalk">Realtime collab</b> · работает (общий backend)</span></li>
+    <li class="flex gap-2"><span class="teal">·</span><span><b class="text-chalk">Updates</b> · <code class="!text-xs">docker pull</code></span></li>
+    <li class="flex gap-2"><span class="teal">·</span><span><b class="text-chalk">Статус</b> · готов сейчас (Q1)</span></li>
+  </ul>
+</div>
+
+<div class="card !border-violet/40">
+  <span class="eyebrow !text-violet-light">Desktop-mode · Tauri native</span>
+  <h3 class="!text-chalk !text-base !mb-2">Для индивидуальных пользователей</h3>
+  <ul class="text-sm dim space-y-1.5 mt-3">
+    <li class="flex gap-2"><span class="violet">·</span><span><b class="text-chalk">Установка</b> · скачать <code class="!text-xs">.dmg / .exe / .AppImage</code></span></li>
+    <li class="flex gap-2"><span class="violet">·</span><span><b class="text-chalk">Где живёт</b> · ноутбук аналитика · 100% локально</span></li>
+    <li class="flex gap-2"><span class="violet">·</span><span><b class="text-chalk">Доступ</b> · нативное окно, без браузера</span></li>
+    <li class="flex gap-2"><span class="violet">·</span><span><b class="text-chalk">Realtime collab</b> · single-user mode</span></li>
+    <li class="flex gap-2"><span class="violet">·</span><span><b class="text-chalk">Updates</b> · auto-update через Tauri updater</span></li>
+    <li class="flex gap-2"><span class="violet">·</span><span><b class="text-chalk">Статус</b> · Q3-Q4 · ~3 недели работы</span></li>
+  </ul>
+</div>
+
+</div>
+
+<div class="card mt-5 !p-4 !border-teal/30">
+  <p class="text-sm dim">
+    <b class="text-chalk">Технический подход</b> · Tauri (Rust + WebView) обёртка вокруг существующего React UI.
+    Postgres + Ollama embedded в bundle (или подключаются к external · по выбору пользователя).
+    ~10MB бинарь vs ~150MB у Electron.
+  </p>
 </div>
 
 ---

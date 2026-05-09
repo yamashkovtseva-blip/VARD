@@ -5,24 +5,18 @@ const { lang = 'en' } = Astro.props;
 const t = useTranslations(lang);
 ---
 <section class="border-y border-chalk/10 bg-ink-900/30">
-  <div class="container-wide py-10">
-    <p class="mb-6 text-center text-xs uppercase tracking-wider text-chalk-mute">{t.trustBar.featured}</p>
-    <div class="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-10 gap-y-4 text-chalk-dim">
-      <span class="font-semibold">Hacker News</span>
-      <span class="text-chalk-mute">·</span>
-      <span class="font-semibold">Product Hunt</span>
-      <span class="text-chalk-mute">·</span>
-      <span class="font-semibold">Console.dev</span>
-      <span class="text-chalk-mute">·</span>
-      <span class="font-semibold">Console</span>
-    </div>
-
-    <div class="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-chalk-dim">
-      <span class="inline-flex items-center gap-2"><span class="text-teal-light">⭐</span> {t.trustBar.stars}</span>
-      <span class="text-chalk-mute">·</span>
-      <span class="inline-flex items-center gap-2"><span class="text-violet-light">💬</span> {t.trustBar.discord}</span>
-      <span class="text-chalk-mute">·</span>
-      <span class="inline-flex items-center gap-2"><span class="text-teal-light">📦</span> {t.trustBar.deploys}</span>
-    </div>
+  <div class="container-wide flex flex-col items-center gap-4 py-10 text-center">
+    <span class="pill !text-[10px]">
+      <span class="text-teal-light">●</span>
+      {t.trustBar.eyebrow}
+    </span>
+    <p class="mx-auto max-w-2xl text-pretty text-base text-chalk-dim">{t.trustBar.message}</p>
+    <a
+      href="https://github.com/nborodulin471/vard"
+      class="inline-flex items-center gap-2 rounded-md border border-chalk/15 bg-ink-800/40 px-4 py-2 text-sm text-chalk-dim transition hover:border-chalk/30 hover:text-chalk"
+    >
+      <span class="text-teal-light">⭐</span>
+      <span>{t.trustBar.github}</span>
+    </a>
   </div>
 </section>

@@ -15,7 +15,6 @@ export const translations = {
       product: 'Product',
       docs: 'Docs',
       pricing: 'Pricing',
-      blog: 'Blog',
       signin: 'Sign in',
       cta: 'Get started',
     },
@@ -43,10 +42,10 @@ export const translations = {
       },
     },
     trustBar: {
-      featured: 'Featured on',
-      stars: '2,341 stars on GitHub',
-      discord: '412 in Discord',
-      deploys: '8,200+ deployments',
+      eyebrow: 'Pre-launch · v0.1',
+      message:
+        'We just shipped Vard. Self-host the MVP, kick the tires, file the issues — help shape what gets built next.',
+      github: 'Star us on GitHub',
     },
     pillars: {
       eyebrow: 'Why Vard',
@@ -244,13 +243,17 @@ export const translations = {
       tagline: 'The data notebook with local AI. Source-available, self-hosted by design.',
       copyright: "© 2026 Vard · Built for data teams who can't go cloud.",
       madeWith: 'Made with ☕ and a healthy distrust of the cloud.',
-      cols: [
-        { title: 'Product', links: ['Notebooks', 'Collaboration', 'Local AI', 'Connectors', 'Security', 'Pricing'] },
-        { title: 'Resources', links: ['Docs', 'Quickstart', 'Examples', 'API reference', 'Changelog', 'Status'] },
-        { title: 'Company', links: ['About', 'Blog', 'Careers', 'Press kit'] },
-        { title: 'Connect', links: ['GitHub', 'Twitter / X', 'Discord', 'LinkedIn'] },
-        { title: 'Legal', links: ['Terms', 'Privacy', 'DPA', 'Security', 'License (BSL 1.1)'] },
-      ],
+      linksTitle: 'Links',
+      legalTitle: 'Legal',
+      links: {
+        pricing: 'Pricing',
+        github: 'GitHub',
+        demo: 'Live demo',
+        email: 'hello@vard.io',
+      },
+      legal: {
+        license: 'License (BSL 1.1)',
+      },
     },
   },
   ru: {
@@ -267,7 +270,6 @@ export const translations = {
       product: 'Продукт',
       docs: 'Документация',
       pricing: 'Тарифы',
-      blog: 'Блог',
       signin: 'Войти',
       cta: 'Начать',
     },
@@ -295,10 +297,10 @@ export const translations = {
       },
     },
     trustBar: {
-      featured: 'Опубликовано на',
-      stars: '2 341 звёзд на GitHub',
-      discord: '412 в Discord',
-      deploys: '8 200+ установок',
+      eyebrow: 'Pre-launch · v0.1',
+      message:
+        'Мы только запустили Vard. Разверните MVP, попробуйте на реальных задачах, заведите issue — помогите задать roadmap.',
+      github: 'Поставить звезду на GitHub',
     },
     pillars: {
       eyebrow: 'Почему Vard',
@@ -495,13 +497,17 @@ export const translations = {
       tagline: 'Ноутбук для данных с локальным AI. Source-available, self-hosted by design.',
       copyright: '© 2026 Vard · Сделано для data-команд, которым нельзя в облако.',
       madeWith: 'Сделано на ☕ и здоровом недоверии к облаку.',
-      cols: [
-        { title: 'Продукт', links: ['Ноутбуки', 'Коллаборация', 'Локальный AI', 'Коннекторы', 'Безопасность', 'Тарифы'] },
-        { title: 'Ресурсы', links: ['Документация', 'Быстрый старт', 'Примеры', 'API-справочник', 'Changelog', 'Статус'] },
-        { title: 'Компания', links: ['О нас', 'Блог', 'Карьера', 'Пресс-кит'] },
-        { title: 'Связь', links: ['GitHub', 'Twitter / X', 'Discord', 'LinkedIn'] },
-        { title: 'Юридическое', links: ['Условия', 'Приватность', 'DPA', 'Безопасность', 'Лицензия (BSL 1.1)'] },
-      ],
+      linksTitle: 'Ссылки',
+      legalTitle: 'Юридическое',
+      links: {
+        pricing: 'Тарифы',
+        github: 'GitHub',
+        demo: 'Живая демо',
+        email: 'hello@vard.io',
+      },
+      legal: {
+        license: 'Лицензия (BSL 1.1)',
+      },
     },
   },
 } as const;
