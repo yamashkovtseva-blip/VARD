@@ -84,6 +84,12 @@
   display: block;
 }
 
+/* Inside table cells, .eyebrow must NOT force display:block — that breaks table layout */
+th.eyebrow, td.eyebrow {
+  display: table-cell !important;
+  margin-bottom: 0 !important;
+}
+
 .dim { color: var(--vard-chalk-dim); }
 .mute { color: var(--vard-chalk-mute); }
 .teal { color: var(--vard-teal-light); }
