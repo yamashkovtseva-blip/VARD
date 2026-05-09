@@ -1,0 +1,48 @@
+# Drop-in snippet for the demo deployment.
+# Merge this into the product repo's docker-compose.yml (or a dedicated
+# compose.demo.yml). The `backend`, `db`, `ollama` services are assumed
+# to already exist in your compose — the frontend just proxies to them.
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: infra/demo-deploy/Dockerfile
+      args:
+        VITE_API_BASE: /api
+        VITE_WS_BASE: /ws
+    image: vard-frontend:prod
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      # In prod put a reverse proxy (Caddy/Traefik) in front and drop this.
+      - "8080:8080"
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /var/cache/nginx
+      - /var/run
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETUID
+      - SETGID
+      - NET_BIND_SERVICE
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:8080/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+  # Reference only — keep your existing backend/db/ollama definitions.
+  # backend:
+  #   build: ./backend
+  #   environment:
+  #     DATABASE_URL: postgresql://vard:vard@db:5432/vard
+  #     OLLAMA_BASE_URL: http://ollama:11434
+  #   depends_on: [db, ollama]

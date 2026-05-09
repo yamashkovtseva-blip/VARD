@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="/VARD/logo.png" />
+    <title>Vard — Presentations</title>
+    <script>
+      const initialLang = (location.hash || '#en').replace('#', '');
+      document.documentElement.dataset.lang = ['en','ru'].includes(initialLang) ? initialLang : 'en';
+    </script>
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <style>
+      :root {
+        --ink-950: #0A0B14;
+        --ink-900: #0F1120;
+        --ink-800: #161A2E;
+        --teal: #3DA89E;
+        --teal-light: #5BC4B8;
+        --navy: #3D4D9E;
+        --violet: #7C6BAE;
+        --violet-light: #9B8BC4;
+        --chalk: #E8EAF2;
+        --chalk-dim: #A8AECB;
+        --chalk-mute: #6B7290;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        background: var(--ink-950);
+        background-image:
+          radial-gradient(ellipse 80% 50% at 50% -10%, rgba(61, 168, 158, 0.10) 0%, transparent 60%),
+          radial-gradient(ellipse 60% 40% at 80% 30%, rgba(124, 107, 174, 0.08) 0%, transparent 60%);
+        background-attachment: fixed;
+        color: var(--chalk);
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        min-height: 100vh;
+        font-feature-settings: 'cv11', 'ss01';
+        -webkit-font-smoothing: antialiased;
+      }
+      .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+      header { padding: 24px 0; border-bottom: 1px solid rgba(168,174,203,0.08); }
+      .nav { display: flex; align-items: center; justify-content: space-between; }
+      .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--chalk); font-weight: 600; }
+      .brand img { width: 28px; height: 28px; }
+
+      .lang-toggle { display: inline-flex; gap: 4px; padding: 3px; border: 1px solid rgba(168,174,203,0.15); background: rgba(22,26,46,0.5); border-radius: 6px; font-size: 12px; }
+      .lang-toggle a { padding: 4px 10px; border-radius: 4px; color: var(--chalk-dim); text-decoration: none; transition: 0.15s; }
+      .lang-toggle a:hover { color: var(--chalk); }
+      [data-lang="en"] .lang-toggle a[data-l="en"],
+      [data-lang="ru"] .lang-toggle a[data-l="ru"] { background: var(--chalk); color: var(--ink-950); font-weight: 500; }
+
+      main { padding: 80px 0 120px; }
+      .hero { text-align: center; max-width: 780px; margin: 0 auto 64px; }
+      h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 600; letter-spacing: -0.02em; margin: 0 0 16px; line-height: 1.1; color: var(--chalk); }
+      .gradient { background: linear-gradient(135deg, #5BC4B8 0%, #5667B8 50%, #9B8BC4 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+      .subtitle { font-size: 1.125rem; color: var(--chalk-dim); margin: 0; line-height: 1.6; }
+
+      .decks { display: grid; gap: 20px; grid-template-columns: 1fr 1fr 1fr; max-width: 1100px; margin: 0 auto; }
+      @media (max-width: 900px) { .decks { grid-template-columns: 1fr; } }
+
+      .card { padding: 28px; border: 1px solid rgba(168,174,203,0.10); background: rgba(15,17,32,0.6); backdrop-filter: blur(6px); border-radius: 14px; transition: 0.2s; display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+      .card:hover { border-color: rgba(168,174,203,0.25); transform: translateY(-2px); }
+      .card.roadmap { border-color: rgba(91,196,184,0.25); }
+
+      .eyebrow { display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px; }
+      .eyebrow.teal { color: var(--teal-light); }
+      .eyebrow.violet { color: var(--violet-light); }
+      .eyebrow.green { color: #6FD3C8; }
+
+      .card h2 { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 8px; color: var(--chalk); }
+      .card p { color: var(--chalk-dim); font-size: 0.92rem; line-height: 1.55; margin: 0 0 24px; flex: 1; }
+      .meta { display: flex; gap: 14px; align-items: center; font-size: 12px; color: var(--chalk-mute); margin-bottom: 22px; }
+      .meta strong { color: var(--chalk-dim); font-weight: 500; }
+
+      .open-row { display: flex; gap: 8px; }
+      .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 500; transition: 0.15s; }
+      .btn-primary { background: var(--chalk); color: var(--ink-950); flex: 1; justify-content: center; }
+      .btn-primary:hover { background: white; }
+      .btn-ghost { background: rgba(22,26,46,0.5); color: var(--chalk-dim); border: 1px solid rgba(168,174,203,0.15); }
+      .btn-ghost:hover { color: var(--chalk); border-color: rgba(168,174,203,0.30); }
+
+      [data-lang="en"] .ru-only { display: none; }
+      [data-lang="ru"] .en-only { display: none; }
+
+      footer { padding: 40px 0 60px; border-top: 1px solid rgba(168,174,203,0.08); margin-top: 60px; color: var(--chalk-mute); font-size: 12px; }
+      .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+      .footer-row a { color: var(--chalk-dim); text-decoration: none; }
+      .footer-row a:hover { color: var(--chalk); }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a class="brand" href="/VARD/">
+          <img src="/VARD/logo.png" alt="Vard" />
+          <span>Vard</span>
+        </a>
+        <nav class="lang-toggle">
+          <a data-l="en" href="#en" onclick="document.documentElement.dataset.lang='en'">EN</a>
+          <a data-l="ru" href="#ru" onclick="document.documentElement.dataset.lang='ru'">RU</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="hero">
+          <span class="en-only">
+            <h1>Vard <span class="gradient">presentations</span></h1>
+            <p class="subtitle">Three decks for three audiences. Investor pitch · customer sales · dev roadmap.</p>
+          </span>
+          <span class="ru-only">
+            <h1>Презентации <span class="gradient">Vard</span></h1>
+            <p class="subtitle">Три дека для трёх аудиторий. Инвесторам · заказчикам · команде разработки.</p>
+          </span>
+        </div>
+
+        <div class="decks">
+          <div class="card investor">
+            <span class="eyebrow violet en-only">Investor pitch</span>
+            <span class="eyebrow violet ru-only">Питч для инвесторов</span>
+            <h2 class="en-only">Seed round deck</h2>
+            <h2 class="ru-only">Seed-раунд</h2>
+            <p class="en-only">14 main slides + 5 backup. Problem, market, why-now, GTM, traction, ask. ~10 min talk.</p>
+            <p class="ru-only">14 основных слайдов + 5 бэкап. Проблема, рынок, why-now, GTM, traction, ask. ~10 мин речь.</p>
+            <div class="meta">
+              <strong>14 + 5</strong>
+              <span>·</span>
+              <span class="en-only">~10 min</span>
+              <span class="ru-only">~10 мин</span>
+            </div>
+            <div class="open-row">
+              <a class="btn btn-primary en-only" href="/VARD/investor/">Open in English →</a>
+              <a class="btn btn-primary ru-only" href="/VARD/investor-ru/">Открыть на русском →</a>
+              <a class="btn btn-ghost en-only" href="/VARD/investor-ru/">RU</a>
+              <a class="btn btn-ghost ru-only" href="/VARD/investor/">EN</a>
+            </div>
+          </div>
+
+          <div class="card sales">
+            <span class="eyebrow teal en-only">Customer sales</span>
+            <span class="eyebrow teal ru-only">Для заказчиков</span>
+            <h2 class="en-only">Sales deck</h2>
+            <h2 class="ru-only">Sales-дек</h2>
+            <p class="en-only">14 slides for regulated industries. Pain → demo → security → pricing → next steps. Live or async.</p>
+            <p class="ru-only">14 слайдов для регулируемых индустрий. Боль → демо → безопасность → цены → следующие шаги.</p>
+            <div class="meta">
+              <strong>14</strong>
+              <span>·</span>
+              <span class="en-only">15-20 min</span>
+              <span class="ru-only">15-20 мин</span>
+            </div>
+            <div class="open-row">
+              <a class="btn btn-primary en-only" href="/VARD/sales/">Open in English →</a>
+              <a class="btn btn-primary ru-only" href="/VARD/sales-ru/">Открыть на русском →</a>
+              <a class="btn btn-ghost en-only" href="/VARD/sales-ru/">RU</a>
+              <a class="btn btn-ghost ru-only" href="/VARD/sales/">EN</a>
+            </div>
+          </div>
+
+          <div class="card roadmap">
+            <span class="eyebrow green">Dev roadmap</span>
+            <h2 class="en-only">Engineering roadmap</h2>
+            <h2 class="ru-only">Roadmap разработки</h2>
+            <p class="en-only">Internal Q1-Q4 plan. Connectors order, SSO/audit specs, Tauri desktop, Cloud architecture, sprint-1. RU only.</p>
+            <p class="ru-only">Внутренний Q1-Q4 план. Коннекторы, SSO/audit специфика, Tauri desktop, Cloud архитектура, sprint-1.</p>
+            <div class="meta">
+              <strong>17</strong>
+              <span>·</span>
+              <span class="en-only">internal · RU</span>
+              <span class="ru-only">внутренний</span>
+            </div>
+            <div class="open-row">
+              <a class="btn btn-primary" href="/VARD/roadmap/">
+                <span class="en-only">Open roadmap →</span>
+                <span class="ru-only">Открыть roadmap →</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container footer-row">
+        <span>© 2026 Vard</span>
+        <span>
+          <a href="mailto:hello@vard.io">hello@vard.io</a>
+          <span style="margin: 0 8px; color: var(--chalk-mute);">·</span>
+          <a href="https://github.com/nborodulin471/vard">github.com/nborodulin471/vard</a>
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>

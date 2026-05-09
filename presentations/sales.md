@@ -127,8 +127,8 @@ chart <span class="!text-violet-light">←</span> ggplot(df, aes(month, mau))</c
   <h3 class="!text-chalk !text-lg !mb-2">Two people, one notebook</h3>
   <p class="text-sm dim mb-3">Live cursors. Comments on cells. Like Google Docs — but for queries.</p>
   <div class="flex items-center gap-2 mt-3">
-    <span class="pill !text-[10px]"><span class="teal">●</span> Tatiana editing</span>
-    <span class="pill !text-[10px]"><span class="violet">●</span> Nikita commenting</span>
+    <span class="pill !text-[10px]"><span class="teal">●</span> Sarah editing</span>
+    <span class="pill !text-[10px]"><span class="violet">●</span> Marcus commenting</span>
   </div>
 </div>
 

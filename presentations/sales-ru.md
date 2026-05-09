@@ -117,8 +117,8 @@ chart <span class="!text-violet-light">←</span> ggplot(df, aes(month, mau))</c
   <h3 class="!text-chalk !text-lg !mb-2">Двое в одном ноутбуке</h3>
   <p class="text-sm dim mb-3">Живые курсоры. Комментарии на ячейках. Как Google Docs — но для запросов.</p>
   <div class="flex items-center gap-2 mt-3">
-    <span class="pill !text-[10px]"><span class="teal">●</span> Татьяна редактирует</span>
-    <span class="pill !text-[10px]"><span class="violet">●</span> Никита комментирует</span>
+    <span class="pill !text-[10px]"><span class="teal">●</span> Сара редактирует</span>
+    <span class="pill !text-[10px]"><span class="violet">●</span> Маркус комментирует</span>
   </div>
 </div>
 

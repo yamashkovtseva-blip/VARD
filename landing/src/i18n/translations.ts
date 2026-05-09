@@ -53,7 +53,7 @@ export const translations = {
       items: [
         {
           title: 'Your data, your network.',
-          body: 'Self-host with Docker or Kubernetes. No SaaS, no vendor lock-in, SOC 2-friendly architecture.',
+          body: 'Self-host with Docker or Kubernetes. No SaaS, no vendor lock-in. Architecture built for SOC 2 (certification in progress, target Q3 2026).',
         },
         {
           title: 'AI without sending data anywhere.',
@@ -88,10 +88,10 @@ export const translations = {
         title: 'Collaborate like in Google Docs, but for data.',
         body:
           "See your teammates' cursors. Edit the same notebook simultaneously. Comment on cells. Share with a link — or keep it inside your VPC.",
-        editingTag: 'Tatiana editing',
-        commentTag: 'Nikita commented',
+        editingTag: 'Sarah editing',
+        commentTag: 'Marcus commented',
         comment: 'Should we filter out internal traffic here?',
-        commentMeta: '— Nikita, 2m ago',
+        commentMeta: '— Marcus, 2m ago',
       },
       {
         eyebrow: 'Connectors',
@@ -174,7 +174,6 @@ export const translations = {
           period: 'per user / month · from 10 seats',
           pitch: 'Self-host with Pro features.',
           cta: 'Start 14-day trial',
-          badge: 'Most popular',
           features: ['Project RBAC', 'Audit log lite', 'Notebook versioning', 'Priority email', 'All Community features'],
         },
         {
@@ -226,18 +225,14 @@ export const translations = {
       body: 'Pilots, security reviews, custom connectors, partnership questions — we read every email.',
       emailLabel: 'Email',
       email: 'hello@vard.io',
+      emailHint: 'Best for pilots, security reviews, partnerships',
       githubLabel: 'GitHub',
       githubHref: 'github.com/nborodulin471/vard',
+      githubHint: 'Issues, discussions, code',
       demoLabel: 'Live demo',
       demoHref: 'vard.ru.tuna.am',
-      formNameLabel: 'Your name',
-      formNamePlaceholder: 'Tatiana M.',
-      formEmailLabel: 'Work email',
-      formEmailPlaceholder: 'you@company.com',
-      formMsgLabel: 'How can we help?',
-      formMsgPlaceholder: 'I run a data team at a regulated bank and...',
-      formCta: 'Send message',
-      formNote: 'We typically reply within 1 business day. No marketing emails — ever.',
+      demoHint: 'Try it without installing anything',
+      note: 'We typically reply within 1 business day. No marketing emails — ever.',
     },
     footer: {
       tagline: 'The data notebook with local AI. Source-available, self-hosted by design.',
@@ -308,7 +303,7 @@ export const translations = {
       items: [
         {
           title: 'Ваши данные — в вашей сети.',
-          body: 'Self-hosted через Docker или Kubernetes. Никакого SaaS, никакого vendor lock-in. Архитектура совместима с SOC 2.',
+          body: 'Self-hosted через Docker или Kubernetes. Никакого SaaS, никакого vendor lock-in. Архитектура построена под SOC 2 (сертификация в процессе, цель Q3 2026).',
         },
         {
           title: 'AI без отправки данных наружу.',
@@ -342,10 +337,10 @@ export const translations = {
         title: 'Совместная работа как в Google Docs — но для данных.',
         body:
           'Видите курсоры коллег. Редактируете одну тетрадь одновременно. Комментируете ячейки. Делитесь по ссылке — или держите внутри VPC.',
-        editingTag: 'Татьяна редактирует',
-        commentTag: 'Никита прокомментировал',
+        editingTag: 'Сара редактирует',
+        commentTag: 'Маркус прокомментировал',
         comment: 'Может, отфильтруем внутренний трафик здесь?',
-        commentMeta: '— Никита, 2 мин назад',
+        commentMeta: '— Маркус, 2 мин назад',
       },
       {
         eyebrow: 'Коннекторы',
@@ -428,7 +423,6 @@ export const translations = {
           period: 'за пользователя / мес · от 10 мест',
           pitch: 'Self-host с Pro-функциями.',
           cta: 'Триал 14 дней',
-          badge: 'Самый популярный',
           features: ['Проектный RBAC', 'Audit log lite', 'Версионирование ноутбуков', 'Приоритетная email-поддержка', 'Всё из Community'],
         },
         {
@@ -480,18 +474,14 @@ export const translations = {
       body: 'Пилоты, security-ревью, кастомные коннекторы, партнёрство — отвечаем на каждое письмо.',
       emailLabel: 'Email',
       email: 'hello@vard.io',
+      emailHint: 'Для пилотов, security-ревью и партнёрств',
       githubLabel: 'GitHub',
       githubHref: 'github.com/nborodulin471/vard',
+      githubHint: 'Issues, discussions, исходный код',
       demoLabel: 'Живая демо',
       demoHref: 'vard.ru.tuna.am',
-      formNameLabel: 'Ваше имя',
-      formNamePlaceholder: 'Татьяна М.',
-      formEmailLabel: 'Рабочая почта',
-      formEmailPlaceholder: 'you@company.com',
-      formMsgLabel: 'Чем мы можем помочь?',
-      formMsgPlaceholder: 'Я веду data-команду в банке с регуляцией...',
-      formCta: 'Отправить',
-      formNote: 'Обычно отвечаем в течение рабочего дня. Никаких маркетинговых рассылок.',
+      demoHint: 'Посмотрите без установки',
+      note: 'Обычно отвечаем в течение рабочего дня. Никаких маркетинговых рассылок.',
     },
     footer: {
       tagline: 'Ноутбук для данных с локальным AI. Source-available, self-hosted by design.',
