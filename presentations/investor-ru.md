@@ -33,7 +33,7 @@ favicon: /logo.png
 </div>
 
 <div class="flex flex-col items-center justify-center min-h-[70vh]">
-  <img src="/logo.png" class="w-32 mb-8" />
+  <img src="./logo.png" class="w-32 mb-8" />
   <h1 class="!text-6xl !mb-4">VARD</h1>
   <p class="text-2xl mb-2 dim">Open-source ноутбук для данных,</p>
   <p class="text-2xl text-gradient font-semibold">который работает на вашей инфраструктуре.</p>
@@ -605,7 +605,7 @@ layout: center
 class: text-center
 ---
 
-<img src="/logo.png" class="w-24 mx-auto mb-8" />
+<img src="./logo.png" class="w-24 mx-auto mb-8" />
 
 # Спасибо.
 
@@ -796,7 +796,7 @@ layout: center
 class: text-center
 ---
 
-<img src="/logo.png" class="w-20 mx-auto mb-6" />
+<img src="./logo.png" class="w-20 mx-auto mb-6" />
 
 ## <span class="text-gradient">Vard</span>
 

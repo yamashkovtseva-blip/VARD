@@ -513,5 +513,10 @@ export function useTranslations(lang: Lang): Translations {
 }
 
 export const altLang = (lang: Lang): Lang => (lang === 'ru' ? 'en' : 'ru');
-export const langPath = (lang: Lang, path = ''): string =>
-  lang === 'en' ? (path || '/') : `/ru${path === '/' || !path ? '/' : path}`;
+
+const BASE = (import.meta.env?.BASE_URL ?? '/').replace(/\/$/, '');
+
+export const langPath = (lang: Lang, path = ''): string => {
+  const suffix = lang === 'en' ? (path || '/') : `/ru${path === '/' || !path ? '/' : path}`;
+  return `${BASE}${suffix}`.replace(/\/+/g, '/');
+};

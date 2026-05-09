@@ -33,7 +33,7 @@ favicon: /logo.png
 </div>
 
 <div class="flex flex-col items-center justify-center min-h-[70vh]">
-  <img src="/logo.png" class="w-32 mb-8" />
+  <img src="./logo.png" class="w-32 mb-8" />
   <h1 class="!text-6xl !mb-4">VARD</h1>
   <p class="text-2xl mb-2 dim">Современные ноутбуки для данных</p>
   <p class="text-2xl text-gradient font-semibold">для команд, которым нельзя в облако.</p>
@@ -577,7 +577,7 @@ layout: center
 class: text-center
 ---
 
-<img src="/logo.png" class="w-24 mx-auto mb-8" />
+<img src="./logo.png" class="w-24 mx-auto mb-8" />
 
 # Вопросы?
 
