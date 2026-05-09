@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="g-top" x1="100" y1="10" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5BC4B8"/>
+      <stop offset="1" stop-color="#2E8B7D"/>
+    </linearGradient>
+    <linearGradient id="g-right" x1="190" y1="100" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5BC4B8"/>
+      <stop offset="1" stop-color="#2E8B7D"/>
+    </linearGradient>
+    <linearGradient id="g-bottom" x1="100" y1="190" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9B8BC4"/>
+      <stop offset="1" stop-color="#5F4F8E"/>
+    </linearGradient>
+    <linearGradient id="g-left" x1="10" y1="100" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9B8BC4"/>
+      <stop offset="1" stop-color="#5F4F8E"/>
+    </linearGradient>
+    <linearGradient id="g-tl" x1="35" y1="35" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5667B8"/>
+      <stop offset="1" stop-color="#2B3A8B"/>
+    </linearGradient>
+    <linearGradient id="g-tr" x1="165" y1="35" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5667B8"/>
+      <stop offset="1" stop-color="#2B3A8B"/>
+    </linearGradient>
+    <linearGradient id="g-br" x1="165" y1="165" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5667B8"/>
+      <stop offset="1" stop-color="#2B3A8B"/>
+    </linearGradient>
+    <linearGradient id="g-bl" x1="35" y1="165" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5667B8"/>
+      <stop offset="1" stop-color="#2B3A8B"/>
+    </linearGradient>
+  </defs>
+  <!-- 4 diamond points (cardinal): top, right, bottom, left -->
+  <polygon points="100,10 130,100 100,100 70,100" fill="url(#g-top)"/>
+  <polygon points="190,100 100,130 100,100 100,70" fill="url(#g-right)"/>
+  <polygon points="100,190 70,100 100,100 130,100" fill="url(#g-bottom)"/>
+  <polygon points="10,100 100,70 100,100 100,130" fill="url(#g-left)"/>
+  <!-- 4 square corners (diagonal): TL, TR, BR, BL -->
+  <polygon points="35,35 100,70 100,100 70,100" fill="url(#g-tl)"/>
+  <polygon points="165,35 100,100 100,70 130,100" fill="url(#g-tr)"/>
+  <polygon points="165,165 130,100 100,100 100,130" fill="url(#g-br)"/>
+  <polygon points="35,165 70,100 100,100 100,130" fill="url(#g-bl)"/>
+  <!-- center seam highlights for depth -->
+  <g stroke="#E8EAF2" stroke-width="0.6" stroke-opacity="0.35">
+    <line x1="100" y1="10" x2="100" y2="190"/>
+    <line x1="10" y1="100" x2="190" y2="100"/>
+    <line x1="35" y1="35" x2="165" y2="165"/>
+    <line x1="165" y1="35" x2="35" y2="165"/>
+  </g>
+</svg>

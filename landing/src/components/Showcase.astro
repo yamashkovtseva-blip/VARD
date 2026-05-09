@@ -1,0 +1,105 @@
+---
+import { useTranslations, type Lang } from '../i18n/translations';
+interface Props { lang?: Lang }
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+const blocks = t.showcase;
+
+const visuals = ['sql', 'polyglot', 'collab', 'connectors'] as const;
+const reverse = [false, true, false, true];
+
+const connectors = ['PostgreSQL', 'DuckDB', 'Snowflake', 'BigQuery', 'Redshift', 'ClickHouse', 'MySQL', 'CSV'];
+---
+<section class="container-wide space-y-24 py-24 lg:space-y-32 lg:py-32">
+  {blocks.map((b, i) => {
+    const visual = visuals[i];
+    return (
+      <div class={`grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16 ${reverse[i] ? 'lg:[&>*:first-child]:order-2' : ''}`}>
+        <div>
+          <p class="mb-3 text-xs uppercase tracking-wider text-teal-light">{b.eyebrow}</p>
+          <h3 class="text-balance text-3xl font-semibold tracking-tight text-chalk sm:text-4xl">{b.title}</h3>
+          <p class="mt-4 text-pretty text-base leading-relaxed text-chalk-dim">{b.body}</p>
+        </div>
+
+        <div class="card overflow-hidden p-5">
+          {visual === 'sql' && 'promptText' in b && (
+            <div class="space-y-3">
+              <div class="rounded-lg border border-teal/30 bg-teal/5 p-3">
+                <div class="mb-1 text-[10px] uppercase tracking-wider text-teal-light">{b.promptLabel}</div>
+                <p class="font-mono text-sm text-chalk">{b.promptText}</p>
+              </div>
+              <div class="rounded-lg border border-chalk/10 bg-ink-800/40 p-3">
+                <div class="mb-2 text-[10px] uppercase tracking-wider text-chalk-mute">{b.sqlLabel}</div>
+                <pre class="overflow-x-auto font-mono text-[12px] leading-relaxed text-chalk-dim"><code><span class="text-violet-light">SELECT</span> country,
+       <span class="text-violet-light">date_trunc</span>(<span class="text-teal-light">'month'</span>, created_at) <span class="text-violet-light">AS</span> month,
+       <span class="text-violet-light">count</span>(<span class="text-violet-light">DISTINCT</span> user_id) <span class="text-violet-light">AS</span> mau
+<span class="text-violet-light">FROM</span> events
+<span class="text-violet-light">WHERE</span> created_at &gt; <span class="text-violet-light">now</span>() <span class="text-chalk-mute">-</span> <span class="text-teal-light">interval '90 days'</span>
+<span class="text-violet-light">GROUP BY</span> 1, 2;</code></pre>
+              </div>
+            </div>
+          )}
+
+          {visual === 'polyglot' && 'outputLabel' in b && (
+            <div class="space-y-2">
+              <div class="rounded border border-chalk/10 bg-ink-800/40 p-3 font-mono text-xs">
+                <div class="mb-1 text-[10px] uppercase tracking-wider text-teal-light">SQL</div>
+                <span class="text-violet-light">SELECT</span> <span class="text-chalk-dim">* FROM events;</span>
+              </div>
+              <div class="rounded border border-chalk/10 bg-ink-800/40 p-3 font-mono text-xs">
+                <div class="mb-1 text-[10px] uppercase tracking-wider text-violet-light">Python</div>
+                <span class="text-chalk-dim">df = events.groupby(<span class="text-teal-light">'country'</span>).agg(...)</span>
+              </div>
+              <div class="rounded border border-chalk/10 bg-ink-800/40 p-3 font-mono text-xs">
+                <div class="mb-1 text-[10px] uppercase tracking-wider text-navy-light">R</div>
+                <span class="text-chalk-dim">ggplot(df, aes(month, mau)) + geom_line()</span>
+              </div>
+              <div class="rounded border border-chalk/10 bg-ink-900/60 p-4">
+                <div class="mb-2 text-[10px] uppercase tracking-wider text-chalk-mute">{b.outputLabel}</div>
+                <svg viewBox="0 0 200 60" class="w-full">
+                  <polyline points="0,50 30,40 60,42 90,28 120,32 150,18 180,20 200,10" fill="none" stroke="#5BC4B8" stroke-width="2"/>
+                  <polyline points="0,55 30,50 60,48 90,42 120,38 150,30 180,32 200,28" fill="none" stroke="#9B8BC4" stroke-width="2"/>
+                </svg>
+              </div>
+            </div>
+          )}
+
+          {visual === 'collab' && 'comment' in b && (
+            <div class="relative space-y-3">
+              <div class="card p-3">
+                <div class="flex items-center gap-2 text-xs text-chalk-dim">
+                  <span class="h-1.5 w-1.5 rounded-full bg-teal"></span>
+                  <span class="font-mono">cell · sql</span>
+                  <span class="ml-auto pill !text-[10px]">{b.editingTag}</span>
+                </div>
+                <pre class="mt-2 font-mono text-[12px] text-chalk-dim"><code><span class="text-violet-light">SELECT</span> country, count(*)
+<span class="text-violet-light">FROM</span> users<span class="inline-block w-0.5 h-3 bg-teal align-middle ml-0.5 animate-pulse-soft"></span></code></pre>
+              </div>
+              <div class="card p-3">
+                <div class="flex items-center gap-2 text-xs text-chalk-dim">
+                  <span class="h-1.5 w-1.5 rounded-full bg-violet"></span>
+                  <span class="font-mono">cell · python</span>
+                  <span class="ml-auto pill !text-[10px]">{b.commentTag}</span>
+                </div>
+                <div class="mt-2 rounded border-l-2 border-violet bg-violet/5 px-3 py-2 text-xs text-chalk-dim">
+                  "{b.comment}" <span class="text-violet-light">{b.commentMeta}</span>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {visual === 'connectors' && (
+            <div class="grid grid-cols-4 gap-3">
+              {connectors.map((c) => (
+                <div class="flex aspect-square flex-col items-center justify-center rounded-lg border border-chalk/10 bg-ink-800/40 p-3 text-center transition hover:border-teal/30">
+                  <div class="mb-1 h-6 w-6 rounded bg-logo-gradient opacity-70"></div>
+                  <span class="text-[10px] text-chalk-dim">{c}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  })}
+</section>

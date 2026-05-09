@@ -1,0 +1,15 @@
+---
+import { useTranslations, type Lang } from '../i18n/translations';
+interface Props { lang?: Lang }
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+---
+<div class="border-b border-chalk/10 bg-ink-900/60 backdrop-blur-sm">
+  <div class="container-wide flex items-center justify-center gap-2 py-2 text-xs text-chalk-dim">
+    <span class="inline-block h-1.5 w-1.5 animate-pulse-soft rounded-full bg-teal"></span>
+    <span>
+      {t.announcement.pre}
+      <a href="#" class="text-chalk underline-offset-4 hover:underline">{t.announcement.cta}</a>
+    </span>
+  </div>
+</div>

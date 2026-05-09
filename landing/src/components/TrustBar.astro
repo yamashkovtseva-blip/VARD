@@ -1,0 +1,28 @@
+---
+import { useTranslations, type Lang } from '../i18n/translations';
+interface Props { lang?: Lang }
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+---
+<section class="border-y border-chalk/10 bg-ink-900/30">
+  <div class="container-wide py-10">
+    <p class="mb-6 text-center text-xs uppercase tracking-wider text-chalk-mute">{t.trustBar.featured}</p>
+    <div class="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-10 gap-y-4 text-chalk-dim">
+      <span class="font-semibold">Hacker News</span>
+      <span class="text-chalk-mute">·</span>
+      <span class="font-semibold">Product Hunt</span>
+      <span class="text-chalk-mute">·</span>
+      <span class="font-semibold">Console.dev</span>
+      <span class="text-chalk-mute">·</span>
+      <span class="font-semibold">Console</span>
+    </div>
+
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-chalk-dim">
+      <span class="inline-flex items-center gap-2"><span class="text-teal-light">⭐</span> {t.trustBar.stars}</span>
+      <span class="text-chalk-mute">·</span>
+      <span class="inline-flex items-center gap-2"><span class="text-violet-light">💬</span> {t.trustBar.discord}</span>
+      <span class="text-chalk-mute">·</span>
+      <span class="inline-flex items-center gap-2"><span class="text-teal-light">📦</span> {t.trustBar.deploys}</span>
+    </div>
+  </div>
+</section>

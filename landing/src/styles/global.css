@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  html {
+    @apply bg-ink-950 text-chalk antialiased;
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+  }
+  body {
+    @apply bg-ink-950 text-chalk;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(61, 168, 158, 0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 30%, rgba(124, 107, 174, 0.08) 0%, transparent 60%);
+    background-attachment: fixed;
+  }
+  ::selection {
+    @apply bg-teal/30 text-chalk;
+  }
+}
+
+@layer components {
+  .container-wide {
+    @apply mx-auto w-full max-w-7xl px-6 lg:px-8;
+  }
+  .container-narrow {
+    @apply mx-auto w-full max-w-5xl px-6 lg:px-8;
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #5BC4B8 0%, #5667B8 50%, #9B8BC4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-chalk px-5 py-3 text-sm font-medium text-ink-950 transition hover:bg-white;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-chalk/15 bg-ink-800/40 px-5 py-3 text-sm font-medium text-chalk transition hover:border-chalk/30 hover:bg-ink-700/40;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium text-chalk-dim transition hover:text-chalk;
+  }
+  .card {
+    @apply rounded-xl border border-chalk/10 bg-ink-900/60 backdrop-blur-sm;
+  }
+  .pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-chalk/15 bg-ink-800/60 px-3 py-1 text-xs text-chalk-dim;
+  }
+  .kbd {
+    @apply rounded border border-chalk/15 bg-ink-800/60 px-1.5 py-0.5 font-mono text-xs text-chalk-dim;
+  }
+}

@@ -1,0 +1,133 @@
+---
+import Logo from './Logo.astro';
+import { useTranslations, type Lang } from '../i18n/translations';
+interface Props { lang?: Lang }
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+const m = t.hero.mockup;
+---
+<section class="relative overflow-hidden">
+  <div class="pointer-events-none absolute inset-0 bg-hero-glow"></div>
+  <div class="pointer-events-none absolute inset-0 bg-grid-faint bg-grid opacity-40 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,black,transparent)]"></div>
+
+  <div class="container-wide relative pt-20 pb-24 lg:pt-28 lg:pb-32">
+    <div class="mx-auto max-w-3xl text-center">
+      <a href="https://github.com/nborodulin471/vard" class="pill mb-8 hover:border-chalk/30 hover:text-chalk">
+        <span class="text-teal-light">●</span>
+        <span>{t.hero.pill}</span>
+        <span class="text-chalk-mute">→</span>
+      </a>
+
+      <h1 class="text-balance text-4xl font-semibold tracking-tight text-chalk sm:text-5xl lg:text-6xl">
+        {t.hero.titleA}<br/>
+        <span class="text-gradient">{t.hero.titleB}</span>
+      </h1>
+
+      <p class="mx-auto mt-6 max-w-xl text-pretty text-lg text-chalk-dim">{t.hero.subtitle}</p>
+
+      <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a href="https://vard.ru.tuna.am/login" class="btn-primary">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M5 3.5v9l7-4.5-7-4.5Z"/></svg>
+          {t.hero.ctaPrimary}
+        </a>
+        <button type="button" data-copy="docker compose up" class="btn-secondary group">
+          <span class="text-teal-light">$</span>
+          <code class="font-mono text-sm">docker compose up</code>
+          <span class="ml-1 text-chalk-mute group-hover:text-chalk-dim">⧉</span>
+        </button>
+      </div>
+
+      <div class="mt-6 flex items-center justify-center gap-1 text-xs text-chalk-mute">
+        <span>{t.hero.starPrefix}</span>
+        <a href="https://github.com/nborodulin471/vard" class="text-chalk-dim underline-offset-4 hover:text-chalk hover:underline">{t.hero.starCta}</a>
+      </div>
+    </div>
+
+    <div class="mx-auto mt-16 max-w-6xl">
+      <div class="card overflow-hidden shadow-2xl shadow-violet/5">
+        <div class="flex items-center justify-between border-b border-chalk/10 bg-ink-800/40 px-4 py-2.5">
+          <div class="flex items-center gap-1.5">
+            <span class="h-2.5 w-2.5 rounded-full bg-chalk/15"></span>
+            <span class="h-2.5 w-2.5 rounded-full bg-chalk/15"></span>
+            <span class="h-2.5 w-2.5 rounded-full bg-chalk/15"></span>
+          </div>
+          <div class="flex items-center gap-2 text-xs text-chalk-mute">
+            <Logo size={12} />
+            <span>{m.file}</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <div class="flex -space-x-1.5">
+              <span class="h-5 w-5 rounded-full border border-ink-800 bg-teal text-[10px] leading-5 text-ink-950 text-center font-medium">T</span>
+              <span class="h-5 w-5 rounded-full border border-ink-800 bg-violet text-[10px] leading-5 text-ink-950 text-center font-medium">N</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-0">
+          <aside class="col-span-3 hidden border-r border-chalk/10 bg-ink-900/40 p-4 text-xs text-chalk-dim md:block">
+            <div class="mb-4 text-[10px] uppercase tracking-wider text-chalk-mute">{m.connections}</div>
+            <ul class="space-y-1.5">
+              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-teal"></span>postgres-prod</li>
+              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-chalk-mute"></span>duckdb-local</li>
+              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-chalk-mute"></span>snowflake</li>
+            </ul>
+            <div class="mt-6 mb-4 text-[10px] uppercase tracking-wider text-chalk-mute">{m.schema}</div>
+            <ul class="space-y-1 text-chalk-mute">
+              <li>▸ users</li>
+              <li>▾ events</li>
+              <li class="pl-3 text-chalk-dim">id · uuid</li>
+              <li class="pl-3 text-chalk-dim">user_id · uuid</li>
+              <li class="pl-3 text-chalk-dim">country · text</li>
+              <li class="pl-3 text-chalk-dim">created_at · ts</li>
+              <li>▸ subscriptions</li>
+            </ul>
+          </aside>
+
+          <div class="col-span-12 space-y-3 p-4 md:col-span-9 md:p-6">
+            <div class="card border-teal/30 bg-ink-800/40 p-4">
+              <div class="mb-2 flex items-center gap-2 text-[10px] uppercase tracking-wider text-teal-light">
+                <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0 6 6 0 8l6 2 2 6 2-6 6-2-6-2-2-6Z"/></svg>
+                {m.aiLabel}
+              </div>
+              <p class="font-mono text-sm text-chalk">{m.prompt}</p>
+            </div>
+
+            <div class="card p-4">
+              <div class="mb-3 flex items-center justify-between">
+                <span class="pill !text-[10px]">{m.sqlBadge}</span>
+                <span class="text-[10px] text-chalk-mute">{m.runHint}</span>
+              </div>
+              <pre class="overflow-x-auto font-mono text-[13px] leading-relaxed"><code><span class="text-violet-light">SELECT</span> <span class="text-chalk">country</span>,
+       <span class="text-violet-light">date_trunc</span>(<span class="text-teal-light">'month'</span>, created_at) <span class="text-violet-light">AS</span> month,
+       <span class="text-violet-light">count</span>(<span class="text-violet-light">DISTINCT</span> user_id) <span class="text-violet-light">AS</span> mau
+<span class="text-violet-light">FROM</span> events
+<span class="text-violet-light">WHERE</span> created_at <span class="text-chalk-dim">&gt;</span> <span class="text-violet-light">now</span>() <span class="text-chalk-dim">-</span> <span class="text-teal-light">interval '90 days'</span>
+<span class="text-violet-light">GROUP BY</span> <span class="text-chalk">1</span>, <span class="text-chalk">2</span>
+<span class="text-violet-light">ORDER BY</span> mau <span class="text-violet-light">DESC</span>;</code></pre>
+            </div>
+
+            <div class="card p-4">
+              <div class="mb-3 flex items-center gap-2">
+                <button class="rounded bg-ink-700/60 px-2 py-1 text-[10px] text-chalk">{m.tabs.table}</button>
+                <button class="rounded px-2 py-1 text-[10px] text-chalk-dim hover:text-chalk">{m.tabs.chart}</button>
+                <button class="rounded px-2 py-1 text-[10px] text-chalk-dim hover:text-chalk">{m.tabs.map}</button>
+                <span class="ml-auto text-[10px] text-chalk-mute">{m.rows}</span>
+              </div>
+              <div class="overflow-hidden rounded border border-chalk/10 font-mono text-xs">
+                <div class="grid grid-cols-3 border-b border-chalk/10 bg-ink-800/40 px-3 py-2 text-[10px] uppercase tracking-wider text-chalk-mute">
+                  <span>{m.cols.country}</span><span>{m.cols.month}</span><span class="text-right">{m.cols.mau}</span>
+                </div>
+                <div class="divide-y divide-chalk/5">
+                  <div class="grid grid-cols-3 px-3 py-2 text-chalk-dim"><span>US</span><span>2026-04</span><span class="text-right text-chalk">128,402</span></div>
+                  <div class="grid grid-cols-3 px-3 py-2 text-chalk-dim"><span>DE</span><span>2026-04</span><span class="text-right text-chalk">42,118</span></div>
+                  <div class="grid grid-cols-3 px-3 py-2 text-chalk-dim"><span>UK</span><span>2026-04</span><span class="text-right text-chalk">38,005</span></div>
+                  <div class="grid grid-cols-3 px-3 py-2 text-chalk-dim"><span>NL</span><span>2026-04</span><span class="text-right text-chalk">19,772</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

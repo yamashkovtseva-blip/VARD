@@ -1,0 +1,19 @@
+---
+import { type Lang, langPath } from '../i18n/translations';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const targetEn = langPath('en', '/');
+const targetRu = langPath('ru', '/');
+---
+<div class="inline-flex items-center rounded-md border border-chalk/15 bg-ink-800/40 p-0.5 text-xs">
+  <a
+    href={targetEn}
+    aria-current={lang === 'en' ? 'page' : undefined}
+    class={`rounded px-2 py-1 transition ${lang === 'en' ? 'bg-chalk text-ink-950 font-medium' : 'text-chalk-dim hover:text-chalk'}`}
+  >EN</a>
+  <a
+    href={targetRu}
+    aria-current={lang === 'ru' ? 'page' : undefined}
+    class={`rounded px-2 py-1 transition ${lang === 'ru' ? 'bg-chalk text-ink-950 font-medium' : 'text-chalk-dim hover:text-chalk'}`}
+  >RU</a>
+</div>

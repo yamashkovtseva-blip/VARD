@@ -1,0 +1,19 @@
+{
+  "name": "vard-presentations",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "investor": "slidev investor.md --open",
+    "investor:build": "slidev build investor.md --base /investor/",
+    "investor:export": "slidev export investor.md --output dist/vard-investor-deck.pdf",
+    "sales": "slidev sales.md --open --port 3031",
+    "sales:build": "slidev build sales.md --base /sales/",
+    "sales:export": "slidev export sales.md --output dist/vard-sales-deck.pdf"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.15.1",
+    "@slidev/theme-default": "^0.25.0",
+    "playwright-chromium": "^1.59.1"
+  }
+}

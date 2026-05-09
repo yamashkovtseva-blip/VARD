@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!--
+    Geometry: 8-pointed star, 4 long cardinal points + 4 short diagonal points,
+    all sharing center (100,100). 16-vertex outline, 16 facets total.
+
+    Outer tips:
+      N (100,8)   NE (146,54)   E (192,100)  SE (146,146)
+      S (100,192) SW (54,146)   W (8,100)    NW (54,54)
+    Inner shared points (each at distance 52 from center):
+      between N–NE  (115,50)   NE–E  (150,85)
+      between E–SE  (150,115)  SE–S  (115,150)
+      between S–SW  (85,150)   SW–W  (50,115)
+      between W–NW  (50,85)    NW–N  (85,50)
+
+    Each kite is split by a seam from outer-tip → center into 2 triangular facets:
+    one slightly lighter, one slightly darker — origami-fold effect.
+  -->
+  <defs>
+    <!-- radial gradients centered at (100,100): dark at center, light at outer -->
+    <radialGradient id="tealLite" cx="100" cy="100" r="92" gradientUnits="userSpaceOnUse">
+      <stop offset="0.10" stop-color="#3D9B8E"/>
+      <stop offset="1.00" stop-color="#7AD4C2"/>
+    </radialGradient>
+    <radialGradient id="tealDark" cx="100" cy="100" r="92" gradientUnits="userSpaceOnUse">
+      <stop offset="0.10" stop-color="#1F6E66"/>
+      <stop offset="1.00" stop-color="#4DAB9F"/>
+    </radialGradient>
+    <radialGradient id="navyLite" cx="100" cy="100" r="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0.10" stop-color="#4F60B0"/>
+      <stop offset="1.00" stop-color="#8090CE"/>
+    </radialGradient>
+    <radialGradient id="navyDark" cx="100" cy="100" r="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0.10" stop-color="#2B3A8B"/>
+      <stop offset="1.00" stop-color="#5667B8"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 8 kites · each kite = 2 triangular facets divided by the central seam -->
+  <!-- light = facet on the side facing upper-left light source -->
+  <!-- dark  = facet on the opposite side -->
+
+  <!-- N (cardinal · teal) -->
+  <polygon points="100,8 85,50 100,100"   fill="url(#tealLite)"/>
+  <polygon points="100,8 115,50 100,100"  fill="url(#tealDark)"/>
+
+  <!-- NE (diagonal · navy) -->
+  <polygon points="146,54 115,50 100,100" fill="url(#navyLite)"/>
+  <polygon points="146,54 150,85 100,100" fill="url(#navyDark)"/>
+
+  <!-- E (cardinal · teal) -->
+  <polygon points="192,100 150,85 100,100"  fill="url(#tealLite)"/>
+  <polygon points="192,100 150,115 100,100" fill="url(#tealDark)"/>
+
+  <!-- SE (diagonal · navy) -->
+  <polygon points="146,146 150,115 100,100" fill="url(#navyLite)"/>
+  <polygon points="146,146 115,150 100,100" fill="url(#navyDark)"/>
+
+  <!-- S (cardinal · teal) -->
+  <polygon points="100,192 85,150 100,100"  fill="url(#tealLite)"/>
+  <polygon points="100,192 115,150 100,100" fill="url(#tealDark)"/>
+
+  <!-- SW (diagonal · navy) -->
+  <polygon points="54,146 50,115 100,100"   fill="url(#navyLite)"/>
+  <polygon points="54,146 85,150 100,100"   fill="url(#navyDark)"/>
+
+  <!-- W (cardinal · teal) -->
+  <polygon points="8,100 50,85 100,100"     fill="url(#tealLite)"/>
+  <polygon points="8,100 50,115 100,100"    fill="url(#tealDark)"/>
+
+  <!-- NW (diagonal · navy) -->
+  <polygon points="54,54 85,50 100,100"     fill="url(#navyLite)"/>
+  <polygon points="54,54 50,85 100,100"     fill="url(#navyDark)"/>
+
+  <!-- Highlight strokes: outer silhouette + 8 seams to center -->
+  <g fill="none" stroke="#FFFFFF">
+    <!-- outer 16-vertex silhouette · faint -->
+    <polygon
+      stroke-opacity="0.20"
+      stroke-width="0.5"
+      points="100,8 115,50 146,54 150,85 192,100 150,115 146,146 115,150
+              100,192 85,150 54,146 50,115 8,100 50,85 54,54 85,50"
+    />
+    <!-- 8 seams from each outer tip to center · slightly brighter -->
+    <g stroke-opacity="0.42" stroke-width="0.55" stroke-linecap="round">
+      <line x1="100" y1="8"   x2="100" y2="100"/>
+      <line x1="146" y1="54"  x2="100" y2="100"/>
+      <line x1="192" y1="100" x2="100" y2="100"/>
+      <line x1="146" y1="146" x2="100" y2="100"/>
+      <line x1="100" y1="192" x2="100" y2="100"/>
+      <line x1="54"  y1="146" x2="100" y2="100"/>
+      <line x1="8"   y1="100" x2="100" y2="100"/>
+      <line x1="54"  y1="54"  x2="100" y2="100"/>
+    </g>
+  </g>
+</svg>

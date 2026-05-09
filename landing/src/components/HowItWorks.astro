@@ -1,0 +1,73 @@
+---
+import { useTranslations, type Lang } from '../i18n/translations';
+interface Props { lang?: Lang }
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+
+const colors = [
+  { bg: 'bg-teal/10', text: 'text-teal-light' },
+  { bg: 'bg-violet/10', text: 'text-violet-light' },
+  { bg: 'bg-navy/10', text: 'text-navy-light' },
+];
+---
+<section id="how" class="container-wide py-24 lg:py-32">
+  <div class="mx-auto max-w-2xl text-center">
+    <p class="mb-3 text-xs uppercase tracking-wider text-teal-light">{t.howItWorks.eyebrow}</p>
+    <h2 class="text-balance text-3xl font-semibold tracking-tight text-chalk sm:text-4xl">{t.howItWorks.title}</h2>
+  </div>
+
+  <div class="mt-16 grid gap-8 lg:grid-cols-3">
+    {t.howItWorks.steps.map((s, i) => (
+      <div class="card p-6">
+        <div class={`mb-4 inline-flex h-7 w-7 items-center justify-center rounded-full ${colors[i].bg} text-xs font-mono ${colors[i].text}`}>{i + 1}</div>
+        <h3 class="mb-2 text-base font-semibold text-chalk">{s.title}</h3>
+        <p class="mb-4 text-sm text-chalk-dim">{s.body}</p>
+        {i === 0 && (
+          <pre class="overflow-x-auto rounded-lg border border-chalk/10 bg-ink-950 p-4 font-mono text-[12px] leading-relaxed text-chalk-dim"><code><span class="text-chalk-mute">$</span> git clone github.com/nborodulin471/vard
+<span class="text-chalk-mute">$</span> cd vard <span class="text-chalk-mute">&amp;&amp;</span> docker compose up</code></pre>
+        )}
+        {i === 1 && (
+          <div class="rounded-lg border border-chalk/10 bg-ink-950 p-4 font-mono text-[13px] text-chalk">
+            <span class="text-chalk-mute">→</span> http://localhost:5173
+          </div>
+        )}
+        {i === 2 && (
+          <div class="flex flex-wrap gap-1.5">
+            <span class="pill !text-[10px]">Postgres</span>
+            <span class="pill !text-[10px]">DuckDB</span>
+            <span class="pill !text-[10px]">CSV</span>
+            <span class="pill !text-[10px]">Ollama</span>
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+
+  <div class="card mt-12 overflow-hidden p-8">
+    <div class="mb-6 text-center">
+      <p class="text-xs uppercase tracking-wider text-chalk-mute">{t.howItWorks.arch.eyebrow}</p>
+    </div>
+    <div class="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+      <div class="rounded-lg border border-chalk/15 bg-ink-800/40 px-5 py-3 text-center">
+        <div class="text-[10px] uppercase tracking-wider text-chalk-mute">{t.howItWorks.arch.browser}</div>
+        <div class="font-mono text-sm text-chalk">React + Monaco</div>
+      </div>
+      <div class="text-chalk-mute">↔</div>
+      <div class="rounded-lg border border-teal/30 bg-teal/5 px-5 py-3 text-center">
+        <div class="text-[10px] uppercase tracking-wider text-teal-light">{t.howItWorks.arch.backend}</div>
+        <div class="font-mono text-sm text-chalk">vard-server</div>
+      </div>
+      <div class="text-chalk-mute">↔</div>
+      <div class="flex flex-col gap-2">
+        <div class="rounded-lg border border-chalk/15 bg-ink-800/40 px-5 py-3 text-center">
+          <div class="text-[10px] uppercase tracking-wider text-chalk-mute">{t.howItWorks.arch.storage}</div>
+          <div class="font-mono text-sm text-chalk">PostgreSQL</div>
+        </div>
+        <div class="rounded-lg border border-violet/30 bg-violet/5 px-5 py-3 text-center">
+          <div class="text-[10px] uppercase tracking-wider text-violet-light">{t.howItWorks.arch.llm}</div>
+          <div class="font-mono text-sm text-chalk">Ollama</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

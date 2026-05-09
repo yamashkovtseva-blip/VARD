@@ -1,0 +1,72 @@
+---
+import { useTranslations, type Lang } from '../i18n/translations';
+interface Props { lang?: Lang }
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+
+const data = [
+  { vard: 'yes', hex: 'no',   deepnote: 'no',   jupyter: 'yes', querybook: 'yes' },
+  { vard: 'yes', hex: 'no',   deepnote: 'no',   jupyter: 'no',  querybook: 'no'  },
+  { vard: 'yes', hex: 'yes',  deepnote: 'yes',  jupyter: 'no',  querybook: 'no'  },
+  { vard: 'yes', hex: 'no',   deepnote: 'no',   jupyter: 'yes', querybook: 'yes' },
+  { vard: 'yes', hex: 'partial', deepnote: 'yes', jupyter: 'partial', querybook: 'partial' },
+  { vard: 'yes', hex: 'yes',  deepnote: 'yes',  jupyter: 'no',  querybook: 'no'  },
+  { vard: 'enterprise', hex: 'yes', deepnote: 'yes', jupyter: 'partial', querybook: 'partial' },
+  { vard: 'yes', hex: 'no',   deepnote: 'no',   jupyter: 'yes', querybook: 'yes' },
+];
+
+const rows = t.comparison.rows.map((name, i) => ({ name, ...data[i] }));
+
+const cell = (v: string) => {
+  if (v === 'yes') return { label: '✓', cls: 'text-teal-light', sub: '' };
+  if (v === 'no') return { label: '✕', cls: 'text-chalk-mute', sub: '' };
+  if (v === 'partial') return { label: '~', cls: 'text-chalk-dim', sub: '' };
+  if (v === 'enterprise') return { label: '✓', cls: 'text-teal-light', sub: lang === 'ru' ? 'Ent' : 'Ent' };
+  return { label: v, cls: 'text-chalk-dim', sub: '' };
+};
+---
+<section class="container-wide py-24 lg:py-32">
+  <div class="mx-auto max-w-2xl text-center">
+    <p class="mb-3 text-xs uppercase tracking-wider text-teal-light">{t.comparison.eyebrow}</p>
+    <h2 class="text-balance text-3xl font-semibold tracking-tight text-chalk sm:text-4xl">{t.comparison.title}</h2>
+  </div>
+
+  <div class="mt-12 overflow-x-auto">
+    <div class="card min-w-[800px] overflow-hidden">
+      <table class="w-full text-sm">
+        <thead class="bg-ink-800/40 text-left text-xs uppercase tracking-wider text-chalk-mute">
+          <tr>
+            <th class="px-6 py-4 font-medium">{t.comparison.featureCol}</th>
+            <th class="px-6 py-4 text-center font-semibold text-chalk"><span class="text-gradient">Vard</span></th>
+            <th class="px-6 py-4 text-center font-medium">Hex</th>
+            <th class="px-6 py-4 text-center font-medium">Deepnote</th>
+            <th class="px-6 py-4 text-center font-medium">Jupyter</th>
+            <th class="px-6 py-4 text-center font-medium">Querybook</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-chalk/10">
+          {rows.map((row) => (
+            <tr class="transition hover:bg-ink-800/20">
+              <td class="px-6 py-4 text-chalk-dim">{row.name}</td>
+              {(['vard', 'hex', 'deepnote', 'jupyter', 'querybook'] as const).map((k) => {
+                const c = cell(row[k]);
+                return (
+                  <td class={`px-6 py-4 text-center ${k === 'vard' ? 'bg-teal/[0.04]' : ''}`}>
+                    <span class={`text-base font-medium ${c.cls}`}>{c.label}</span>
+                    {c.sub && <span class="ml-1 text-[10px] text-chalk-mute">{c.sub}</span>}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <p class="mt-4 text-center text-xs text-chalk-mute">
+    {t.comparison.footnote}
+    <a href="https://github.com/nborodulin471/vard/issues" class="text-chalk-dim underline-offset-4 hover:text-chalk hover:underline">{t.comparison.footnoteLink}</a>
+    {t.comparison.footnoteAfter}
+  </p>
+</section>

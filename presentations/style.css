@@ -1,0 +1,110 @@
+/* Vard brand styles for Slidev — palette from logo */
+
+:root {
+  --vard-ink-950: #0A0B14;
+  --vard-ink-900: #0F1120;
+  --vard-ink-800: #161A2E;
+  --vard-ink-700: #1E2440;
+  --vard-teal: #3DA89E;
+  --vard-teal-light: #5BC4B8;
+  --vard-navy: #3D4D9E;
+  --vard-navy-light: #5667B8;
+  --vard-violet: #7C6BAE;
+  --vard-violet-light: #9B8BC4;
+  --vard-chalk: #E8EAF2;
+  --vard-chalk-dim: #A8AECB;
+  --vard-chalk-mute: #6B7290;
+}
+
+.slidev-layout {
+  background-color: var(--vard-ink-950);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(61, 168, 158, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 30%, rgba(124, 107, 174, 0.08) 0%, transparent 60%);
+  color: var(--vard-chalk);
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+.slidev-layout h1 {
+  color: var(--vard-chalk);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: 2.4rem;
+}
+.slidev-layout h2 {
+  color: var(--vard-chalk);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.slidev-layout h3 {
+  color: var(--vard-chalk-dim);
+  font-weight: 500;
+}
+.slidev-layout p, .slidev-layout li {
+  color: var(--vard-chalk-dim);
+}
+
+/* gradient accent text */
+.text-gradient {
+  background: linear-gradient(135deg, #5BC4B8 0%, #5667B8 50%, #9B8BC4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* code blocks tuned to dark background */
+.slidev-layout pre, .slidev-layout code {
+  background-color: var(--vard-ink-800) !important;
+  border: 1px solid rgba(168, 174, 203, 0.10);
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* generic helpers usable from markdown */
+.eyebrow {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--vard-teal-light);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.dim { color: var(--vard-chalk-dim); }
+.mute { color: var(--vard-chalk-mute); }
+.teal { color: var(--vard-teal-light); }
+.navy { color: var(--vard-navy-light); }
+.violet { color: var(--vard-violet-light); }
+
+.card {
+  background: rgba(15, 17, 32, 0.6);
+  border: 1px solid rgba(168, 174, 203, 0.10);
+  border-radius: 12px;
+  padding: 1.4rem;
+  backdrop-filter: blur(4px);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(22, 26, 46, 0.6);
+  border: 1px solid rgba(168, 174, 203, 0.15);
+  font-size: 0.75rem;
+  color: var(--vard-chalk-dim);
+}
+
+/* center layout for cover slides */
+.slidev-layout.cover, .slidev-layout.center {
+  background-image:
+    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(61, 168, 158, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 70% 60%, rgba(124, 107, 174, 0.10) 0%, transparent 60%);
+}
+
+/* hide default footer toolbar contrast */
+.slidev-page footer {
+  color: var(--vard-chalk-mute);
+}

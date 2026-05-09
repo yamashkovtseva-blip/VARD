@@ -1,0 +1,36 @@
+---
+import { useTranslations, type Lang } from '../i18n/translations';
+interface Props { lang?: Lang }
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+---
+<section class="relative overflow-hidden border-y border-chalk/10 bg-ink-900/40">
+  <div class="pointer-events-none absolute inset-0 opacity-30">
+    <div class="absolute -top-1/2 -left-1/4 h-[600px] w-[600px] rounded-full bg-teal/20 blur-3xl"></div>
+    <div class="absolute -bottom-1/2 -right-1/4 h-[600px] w-[600px] rounded-full bg-violet/20 blur-3xl"></div>
+  </div>
+
+  <div class="container-narrow relative py-24 lg:py-32">
+    <div class="text-center">
+      <p class="mb-3 text-xs uppercase tracking-wider text-violet-light">{t.privacy.eyebrow}</p>
+      <h2 class="text-balance text-4xl font-semibold tracking-tight text-chalk sm:text-5xl">
+        {t.privacy.titleA}<br/>
+        <span class="text-gradient">{t.privacy.titleB}</span>
+      </h2>
+      <p class="mx-auto mt-6 max-w-2xl text-pretty text-lg text-chalk-dim">
+        {t.privacy.bodyA}<br/>
+        {t.privacy.bodyB}
+      </p>
+      <p class="mt-6 text-xl font-semibold text-chalk">{t.privacy.kicker}</p>
+    </div>
+
+    <div class="mt-12 flex flex-wrap items-center justify-center gap-3">
+      {t.privacy.badges.map((b) => (
+        <div class="inline-flex items-center gap-2 rounded-full border border-teal/30 bg-teal/5 px-4 py-2 text-sm text-chalk">
+          <span class="text-teal-light">✓</span>
+          <span>{b}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
