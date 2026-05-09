@@ -57,7 +57,7 @@
       .gradient { background: linear-gradient(135deg, #5BC4B8 0%, #5667B8 50%, #9B8BC4 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
       .subtitle { font-size: 1.125rem; color: var(--chalk-dim); margin: 0; line-height: 1.6; }
 
-      .decks { display: grid; gap: 20px; grid-template-columns: 1fr 1fr 1fr; max-width: 1100px; margin: 0 auto; }
+      .decks { display: grid; gap: 20px; grid-template-columns: 1fr 1fr; max-width: 800px; margin: 0 auto; }
       @media (max-width: 900px) { .decks { grid-template-columns: 1fr; } }
 
       .card { padding: 28px; border: 1px solid rgba(168,174,203,0.10); background: rgba(15,17,32,0.6); backdrop-filter: blur(6px); border-radius: 14px; transition: 0.2s; display: flex; flex-direction: column; text-decoration: none; color: inherit; }
@@ -109,36 +109,15 @@
         <div class="hero">
           <span class="en-only">
             <h1>Vard <span class="gradient">presentations</span></h1>
-            <p class="subtitle">Three decks for three audiences. Investor pitch · customer sales · dev roadmap.</p>
+            <p class="subtitle">Two decks. Customer sales · dev roadmap.</p>
           </span>
           <span class="ru-only">
             <h1>Презентации <span class="gradient">Vard</span></h1>
-            <p class="subtitle">Три дека для трёх аудиторий. Инвесторам · заказчикам · команде разработки.</p>
+            <p class="subtitle">Два дека. Для заказчиков · команде разработки.</p>
           </span>
         </div>
 
         <div class="decks">
-          <div class="card investor">
-            <span class="eyebrow violet en-only">Investor pitch</span>
-            <span class="eyebrow violet ru-only">Питч для инвесторов</span>
-            <h2 class="en-only">Seed round deck</h2>
-            <h2 class="ru-only">Seed-раунд</h2>
-            <p class="en-only">14 main slides + 5 backup. Problem, market, why-now, GTM, traction, ask. ~10 min talk.</p>
-            <p class="ru-only">14 основных слайдов + 5 бэкап. Проблема, рынок, why-now, GTM, traction, ask. ~10 мин речь.</p>
-            <div class="meta">
-              <strong>14 + 5</strong>
-              <span>·</span>
-              <span class="en-only">~10 min</span>
-              <span class="ru-only">~10 мин</span>
-            </div>
-            <div class="open-row">
-              <a class="btn btn-primary en-only" href="/VARD/investor/">Open in English →</a>
-              <a class="btn btn-primary ru-only" href="/VARD/investor-ru/">Открыть на русском →</a>
-              <a class="btn btn-ghost en-only" href="/VARD/investor-ru/">RU</a>
-              <a class="btn btn-ghost ru-only" href="/VARD/investor/">EN</a>
-            </div>
-          </div>
-
           <div class="card sales">
             <span class="eyebrow teal en-only">Customer sales</span>
             <span class="eyebrow teal ru-only">Для заказчиков</span>
