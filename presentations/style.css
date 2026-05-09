@@ -23,7 +23,20 @@
     radial-gradient(ellipse 60% 40% at 80% 30%, rgba(124, 107, 174, 0.08) 0%, transparent 60%);
   color: var(--vard-chalk);
   font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  /* Allow vertical scroll inside dense slides instead of clipping */
+  overflow-y: auto !important;
+  padding: 2rem 2.5rem !important;
 }
+
+/* Tighter defaults to reduce overflow on dense slides */
+.slidev-layout h1 { font-size: 2rem !important; margin-bottom: 0.6rem !important; }
+.slidev-layout h2 { font-size: 1.4rem !important; }
+.slidev-layout h3 { font-size: 1rem !important; margin: 0 !important; }
+.slidev-layout p  { margin: 0.3rem 0 !important; line-height: 1.45 !important; }
+.slidev-layout .card { padding: 1rem !important; }
+.slidev-layout ul, .slidev-layout ol { margin: 0.3rem 0 !important; }
+.slidev-layout table { font-size: 0.78rem !important; }
+.slidev-layout table td, .slidev-layout table th { padding: 0.4rem 0.6rem !important; }
 
 .slidev-layout h1 {
   color: var(--vard-chalk);

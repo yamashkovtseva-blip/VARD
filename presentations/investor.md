@@ -1,6 +1,8 @@
 ---
 theme: default
 title: Vard — Investor Deck
+canvasWidth: 1280
+aspectRatio: "16/10"
 info: |
   Vard — open-source data notebook with local AI.
   Self-hosted alternative to Hex and Deepnote for regulated industries.
@@ -15,7 +17,7 @@ fonts:
   sans: 'Inter'
   mono: 'JetBrains Mono'
 colorSchema: dark
-favicon: /favicon.svg
+favicon: /logo.png
 ---
 
 <style>
@@ -31,7 +33,7 @@ favicon: /favicon.svg
 </div>
 
 <div class="flex flex-col items-center justify-center min-h-[70vh]">
-  <img src="/logo.svg" class="w-32 mb-8" />
+  <img src="/logo.png" class="w-32 mb-8" />
   <h1 class="!text-6xl !mb-4">VARD</h1>
   <p class="text-2xl mb-2 dim">The open-source data notebook</p>
   <p class="text-2xl text-gradient font-semibold">that runs on your own infra.</p>
@@ -326,40 +328,45 @@ layout: default
 
 # We're the only one in the privacy-first AI quadrant.
 
-<div class="relative mx-auto mt-8" style="width: 580px; height: 380px;">
+<div class="grid grid-cols-3 gap-3 mt-6 max-w-3xl mx-auto items-center">
 
-  <div class="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-px bg-chalk/10">
-    <div class="bg-ink-950 p-5">
+  <div></div>
+  <div class="text-center text-xs uppercase tracking-wider mute">↑ AI-native</div>
+  <div></div>
+
+  <div class="text-right text-xs uppercase tracking-wider mute pr-3">← Cloud</div>
+
+  <div class="grid grid-cols-2 grid-rows-2 gap-px bg-chalk/10 aspect-square">
+    <div class="bg-ink-950 p-4">
       <div class="text-[10px] mute uppercase tracking-wider">Cloud · AI-native</div>
       <div class="text-base text-chalk mt-2 font-medium">Hex · Deepnote</div>
-      <div class="text-sm dim mt-1">Cloud-only. AI on OpenAI.</div>
+      <div class="text-xs dim mt-1">Cloud-only. AI on OpenAI.</div>
     </div>
-    <div class="bg-ink-950 p-5 !border-2 !border-teal/60">
+    <div class="bg-ink-950 p-4 !border-2 !border-teal/60">
       <div class="text-[10px] teal uppercase tracking-wider">On-prem · AI-native</div>
-      <div class="text-2xl text-chalk mt-2 font-semibold">VARD</div>
-      <div class="text-sm dim mt-1">Self-hosted. Local LLM.</div>
+      <div class="text-xl text-chalk mt-2 font-semibold">VARD</div>
+      <div class="text-xs dim mt-1">Self-hosted. Local LLM.</div>
     </div>
-    <div class="bg-ink-950 p-5">
+    <div class="bg-ink-950 p-4">
       <div class="text-[10px] mute uppercase tracking-wider">Cloud · traditional</div>
       <div class="text-base text-chalk mt-2 font-medium">Mode · Looker</div>
-      <div class="text-sm dim mt-1">BI cloud. No notebooks.</div>
+      <div class="text-xs dim mt-1">BI cloud. No notebooks.</div>
     </div>
-    <div class="bg-ink-950 p-5">
+    <div class="bg-ink-950 p-4">
       <div class="text-[10px] mute uppercase tracking-wider">On-prem · traditional</div>
       <div class="text-base text-chalk mt-2 font-medium">Jupyter · Querybook</div>
-      <div class="text-sm dim mt-1">Self-hosted. No AI, no collab.</div>
+      <div class="text-xs dim mt-1">Self-hosted. No AI, no collab.</div>
     </div>
   </div>
 
-  <div class="absolute -left-16 top-1/2 -translate-y-1/2 -rotate-90 mute text-xs uppercase tracking-wider">
-    AI-native ↑   Traditional ↓
-  </div>
-  <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 mute text-xs uppercase tracking-wider">
-    ← Cloud   ·   On-prem →
-  </div>
+  <div class="text-left text-xs uppercase tracking-wider mute pl-3">On-prem →</div>
+
+  <div></div>
+  <div class="text-center text-xs uppercase tracking-wider mute">↓ Traditional</div>
+  <div></div>
 </div>
 
-<div class="mt-16 text-center text-base">
+<div class="mt-6 text-center text-base">
   <span class="dim">The top-right quadrant has zero serious players.</span> <span class="text-chalk font-semibold">We're building it.</span>
 </div>
 
@@ -645,7 +652,7 @@ layout: center
 class: text-center
 ---
 
-<img src="/logo.svg" class="w-24 mx-auto mb-8" />
+<img src="/logo.png" class="w-24 mx-auto mb-8" />
 
 # Thank you.
 
@@ -836,7 +843,7 @@ layout: center
 class: text-center
 ---
 
-<img src="/logo.svg" class="w-20 mx-auto mb-6" />
+<img src="/logo.png" class="w-20 mx-auto mb-6" />
 
 ## <span class="text-gradient">Vard</span>
 

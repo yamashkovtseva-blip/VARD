@@ -1,0 +1,1 @@
+var e=`/VARD/investor/logo.png`;export{e as t};

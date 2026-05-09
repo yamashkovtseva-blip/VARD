@@ -1,0 +1,1 @@
+var e=`/VARD/sales-ru/logo.png`;export{e as t};
