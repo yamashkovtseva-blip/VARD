@@ -397,7 +397,7 @@ layout: default
 
 # Pricing
 
-<div class="grid grid-cols-4 gap-3 mt-8">
+<div class="grid grid-cols-3 gap-3 mt-8">
 
 <div class="card">
   <h3 class="!text-chalk !text-base !mb-2">Community</h3>
@@ -407,16 +407,7 @@ layout: default
   <div class="text-xs teal">Best for · pilot, individual teams</div>
 </div>
 
-<div class="card">
-  <h3 class="!text-chalk !text-base !mb-2">Team Cloud</h3>
-  <div class="text-3xl text-chalk font-semibold">$39</div>
-  <div class="text-xs mute">per user / mo</div>
-  <p class="text-xs dim mt-3 mb-4">We host. Email support. Coming Q3 2026.</p>
-  <div class="text-xs violet">Best for · teams that can use cloud</div>
-</div>
-
 <div class="card !border-teal/40 !bg-teal/[0.04] relative">
-  <span class="absolute -top-2 right-4 inline-flex rounded-full px-2.5 py-0.5 text-[10px] font-medium bg-teal text-ink-950">Most popular</span>
   <h3 class="!text-chalk !text-base !mb-2">Self-hosted Pro</h3>
   <div class="text-3xl text-chalk font-semibold">$49</div>
   <div class="text-xs mute">per user / mo · from 10 seats</div>

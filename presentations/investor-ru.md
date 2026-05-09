@@ -550,9 +550,9 @@ layout: default
 <div>
   <span class="eyebrow !text-teal-light">Цель · через 90 дней после запуска</span>
   <ul class="space-y-2.5 text-sm mt-3">
-    <li class="flex items-start gap-3"><span class="violet">→</span><span>2 400 GitHub-звёзд</span></li>
-    <li class="flex items-start gap-3"><span class="violet">→</span><span>8 200 установок через Docker Hub</span></li>
-    <li class="flex items-start gap-3"><span class="violet">→</span><span>412 активных в Discord</span></li>
+    <li class="flex items-start gap-3"><span class="violet">→</span><span>~500 GitHub-звёзд</span></li>
+    <li class="flex items-start gap-3"><span class="violet">→</span><span>~1 500 Docker-pulls</span></li>
+    <li class="flex items-start gap-3"><span class="violet">→</span><span>~80 активных в Discord</span></li>
     <li class="flex items-start gap-3"><span class="violet">→</span><span>12 enterprise inbound demo-запросов</span></li>
     <li class="flex items-start gap-3"><span class="violet">→</span><span>2 платных пилота (Банк A, Healthcare B)</span></li>
   </ul>

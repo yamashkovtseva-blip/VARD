@@ -68,12 +68,14 @@
 
 ### 3. Trust bar / Social proof
 
-**На этапе запуска (нет логотипов):**
+**На этапе запуска (pre-launch, нет цифр):**
 ```
-        Featured on:
-   [Hacker News]  [Product Hunt]  [Console.dev]  [Console]
+        ● Pre-launch · v0.1
         
-        ⭐ 2,341 stars on GitHub  ·  💬 412 in Discord  ·  📦 8,200+ deployments
+   We just shipped Vard. Self-host the MVP, kick the tires,
+   file the issues — help shape what gets built next.
+   
+        ⭐ Star us on GitHub →
 ```
 
 **Через 3–6 мес (когда появятся клиенты):**

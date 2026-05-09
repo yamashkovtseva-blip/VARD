@@ -330,16 +330,16 @@ Background:                  Why this matters here.       Why this matters here.
 ○ First paying customer: planned for Q2
 ```
 
-**Версия через 3 месяца:**
+**Версия через 3 месяца после Show HN (реалистичные стартовые цели без paid-маркетинга):**
 ```
-✓ 2,400 GitHub stars (in 8 weeks since launch)
-✓ 8,200 deployments via Docker Hub
-✓ 412 active Discord members
-✓ 12 enterprise inbound demo requests
-✓ 2 paid pilots in progress (Bank A, Healthcare B)
+✓ ~500 GitHub stars
+✓ ~1,500 Docker pulls
+✓ ~80 active Discord members
+✓ 5 enterprise inbound demo requests
+✓ 1 paid pilot in progress
 ```
 
-**Speaker note:** Заменять каждый месяц. Trction — самый важный слайд после первых 90 дней.
+**Speaker note:** Заменять каждый месяц по факту. Traction — самый важный слайд после первых 90 дней. Числа выше — стартовая модель для seed-стадии без paid-acquisition; не использовать как факт до момента, пока цифра реально не достигнута.
 
 ---
 

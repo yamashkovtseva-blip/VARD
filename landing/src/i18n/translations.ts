@@ -150,6 +150,8 @@ export const translations = {
     pricing: {
       title: 'Pricing',
       subtitle: 'Free forever for internal use. Pay when you need more.',
+      callout:
+        'You self-host the software. We charge for the license and Pro features — never for your data or your hardware.',
       tiers: [
         {
           name: 'Community',
@@ -158,15 +160,6 @@ export const translations = {
           pitch: 'Self-host. Up to 5 users. Unlimited notebooks. Local AI. Community support.',
           cta: 'Deploy free',
           features: ['Self-hosted', 'Up to 5 users', 'Unlimited notebooks', 'Local AI (Ollama)', 'Community support'],
-        },
-        {
-          name: 'Team Cloud',
-          price: '$39',
-          period: 'per user / month',
-          pitch: 'We host for you. Unlimited users. Email support.',
-          cta: 'Join waitlist',
-          badge: 'Coming soon',
-          features: ['Hosted by us', 'Unlimited users', 'Email support', 'Daily backups', 'Audit log lite'],
         },
         {
           name: 'Self-hosted Pro',
@@ -190,6 +183,14 @@ export const translations = {
         {
           q: 'Is Vard really free?',
           a: 'Yes. Source-available under Business Source License 1.1; converts to Apache 2.0 on 2030-01-01. Free for internal use, forever.',
+        },
+        {
+          q: 'What am I paying for if I self-host it myself?',
+          a: 'The commercial license and the closed-source Pro / Enterprise features — project RBAC, audit log, SSO, custom connectors, priority support. Same open-core model as Sentry, GitLab, CockroachDB. Your data, your AI, and your hardware stay yours; you never pay us for hosting.',
+        },
+        {
+          q: 'How does Community differ from Self-hosted Pro?',
+          a: 'Community is free under BSL for internal use, up to 5 users, with community support. Pro adds project-level RBAC, audit log, notebook versioning, priority email support, and removes the seat limit (sold from 10 seats up). Both run entirely on your infrastructure.',
         },
         {
           q: 'Can I use my own LLM (OpenAI, Claude, local)?',
@@ -399,6 +400,8 @@ export const translations = {
     pricing: {
       title: 'Тарифы',
       subtitle: 'Бесплатно навсегда для внутреннего использования. Платите, когда нужно больше.',
+      callout:
+        'Вы хостите сами. Мы берём деньги за лицензию и Pro-фичи — никогда за ваши данные и не за ваше железо.',
       tiers: [
         {
           name: 'Community',
@@ -407,15 +410,6 @@ export const translations = {
           pitch: 'Self-host. До 5 пользователей. Безлимит ноутбуков. Локальный AI. Поддержка сообществом.',
           cta: 'Развернуть бесплатно',
           features: ['Self-hosted', 'До 5 пользователей', 'Безлимит ноутбуков', 'Локальный AI (Ollama)', 'Поддержка сообществом'],
-        },
-        {
-          name: 'Team Cloud',
-          price: '$39',
-          period: 'за пользователя / мес',
-          pitch: 'Хостим у себя. Без лимитов на пользователей. Поддержка по email.',
-          cta: 'В лист ожидания',
-          badge: 'Скоро',
-          features: ['Хостинг у нас', 'Без лимита пользователей', 'Поддержка по email', 'Ежедневные бэкапы', 'Audit log lite'],
         },
         {
           name: 'Self-hosted Pro',
@@ -439,6 +433,14 @@ export const translations = {
         {
           q: 'Vard правда бесплатный?',
           a: 'Да. Source-available под Business Source License 1.1; 1 января 2030 лицензия автоматически переходит в Apache 2.0. Бесплатно для внутреннего использования, навсегда.',
+        },
+        {
+          q: 'За что я плачу, если хостю всё сам?',
+          a: 'За коммерческую лицензию и закрытые Pro / Enterprise-фичи — проектный RBAC, audit log, SSO, кастомные коннекторы, приоритетную поддержку. Та же open-core модель, что у Sentry, GitLab, CockroachDB. Ваши данные, ваш AI и ваше железо остаются у вас; за хостинг вы нам не платите никогда.',
+        },
+        {
+          q: 'Чем Community отличается от Self-hosted Pro?',
+          a: 'Community бесплатен по BSL для внутреннего использования, до 5 пользователей, поддержка через сообщество. Pro добавляет проектный RBAC, audit log, версионирование ноутбуков, приоритетную email-поддержку и снимает лимит на пользователей (продаётся от 10 мест). Оба варианта работают полностью на вашей инфраструктуре.',
         },
         {
           q: 'Можно использовать свою LLM (OpenAI, Claude, локальную)?',
