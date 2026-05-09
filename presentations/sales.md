@@ -33,7 +33,7 @@ favicon: /logo.png
 </div>
 
 <div class="flex flex-col items-center justify-center min-h-[70vh]">
-  <img src="./logo.png" class="w-32 mb-8" />
+  <img src="/logo.png" class="w-32 mb-8" />
   <h1 class="!text-6xl !mb-4">VARD</h1>
   <p class="text-2xl mb-2 dim">Modern data notebooks</p>
   <p class="text-2xl text-gradient font-semibold">for teams that can't send data to the cloud.</p>
@@ -296,11 +296,10 @@ cd vard</code></pre>
 
 <div class="card mt-8 !p-5 !border-teal/30">
   <p class="eyebrow">Deployment options</p>
-  <div class="grid grid-cols-4 gap-3 mt-2 text-center">
+  <div class="grid grid-cols-3 gap-3 mt-2 text-center">
     <div class="text-sm"><div class="text-chalk font-medium">Docker Compose</div><div class="text-xs mute">single VM, dev/team</div></div>
     <div class="text-sm"><div class="text-chalk font-medium">Kubernetes (Helm)</div><div class="text-xs mute">production scale</div></div>
     <div class="text-sm"><div class="text-chalk font-medium">Air-gapped</div><div class="text-xs mute">no internet required</div></div>
-    <div class="text-sm"><div class="text-chalk font-medium">Vard Cloud</div><div class="text-xs mute">we host (coming Q3)</div></div>
   </div>
 </div>
 
@@ -403,7 +402,7 @@ layout: default
   <h3 class="!text-chalk !text-base !mb-2">Community</h3>
   <div class="text-3xl text-chalk font-semibold">$0</div>
   <div class="text-xs mute">forever</div>
-  <p class="text-xs dim mt-3 mb-4">Self-host · up to 5 users · local AI · community support.</p>
+  <p class="text-xs dim mt-3 mb-4">Run locally · up to 5 users · local AI · community support.</p>
   <div class="text-xs teal">Best for · pilot, individual teams</div>
 </div>
 
@@ -569,7 +568,7 @@ class: text-center
 
 <div class="card text-left !border-teal/40">
   <div class="eyebrow !text-teal-light">In 60 seconds</div>
-  <h3 class="!text-chalk !text-base !mb-2">Self-host on your laptop</h3>
+  <h3 class="!text-chalk !text-base !mb-2">Run it on your laptop</h3>
   <p class="text-sm dim mb-3">Docker compose, one command. Connect your Postgres.</p>
   <pre class="!p-2 !text-[10px]"><code>docker compose up</code></pre>
 </div>
@@ -592,7 +591,7 @@ layout: center
 class: text-center
 ---
 
-<img src="./logo.png" class="w-24 mx-auto mb-8" />
+<img src="/logo.png" class="w-24 mx-auto mb-8" />
 
 # Questions?
 

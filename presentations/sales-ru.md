@@ -33,7 +33,7 @@ favicon: /logo.png
 </div>
 
 <div class="flex flex-col items-center justify-center min-h-[70vh]">
-  <img src="./logo.png" class="w-32 mb-8" />
+  <img src="/logo.png" class="w-32 mb-8" />
   <h1 class="!text-6xl !mb-4">VARD</h1>
   <p class="text-2xl mb-2 dim">Современные ноутбуки для данных</p>
   <p class="text-2xl text-gradient font-semibold">для команд, которым нельзя в облако.</p>
@@ -276,11 +276,10 @@ cd vard</code></pre>
 
 <div class="card mt-8 !p-5 !border-teal/30">
   <p class="eyebrow">Варианты развёртывания</p>
-  <div class="grid grid-cols-4 gap-3 mt-2 text-center">
+  <div class="grid grid-cols-3 gap-3 mt-2 text-center">
     <div class="text-sm"><div class="text-chalk font-medium">Docker Compose</div><div class="text-xs mute">одна VM, dev/team</div></div>
     <div class="text-sm"><div class="text-chalk font-medium">Kubernetes (Helm)</div><div class="text-xs mute">production-масштаб</div></div>
     <div class="text-sm"><div class="text-chalk font-medium">Air-gapped</div><div class="text-xs mute">без интернета</div></div>
-    <div class="text-sm"><div class="text-chalk font-medium">Vard Cloud</div><div class="text-xs mute">хостим мы (Q3)</div></div>
   </div>
 </div>
 
@@ -383,7 +382,7 @@ layout: default
   <h3 class="!text-chalk !text-base !mb-2">Community</h3>
   <div class="text-3xl text-chalk font-semibold">$0</div>
   <div class="text-xs mute">навсегда</div>
-  <p class="text-xs dim mt-3 mb-4">Self-host · до 5 пользователей · локальный AI · поддержка сообществом.</p>
+  <p class="text-xs dim mt-3 mb-4">Запуск локально · до 5 пользователей · локальный AI · поддержка сообществом.</p>
   <div class="text-xs teal">Для · пилот, отдельные команды</div>
 </div>
 
@@ -545,7 +544,7 @@ class: text-center
 
 <div class="card text-left !border-teal/40">
   <div class="eyebrow !text-teal-light">За 60 секунд</div>
-  <h3 class="!text-chalk !text-base !mb-2">Self-host на ноутбуке</h3>
+  <h3 class="!text-chalk !text-base !mb-2">Запустите на ноутбуке</h3>
   <p class="text-sm dim mb-3">Docker Compose, одна команда. Подключите Postgres.</p>
   <pre class="!p-2 !text-[10px]"><code>docker compose up</code></pre>
 </div>
@@ -568,7 +567,7 @@ layout: center
 class: text-center
 ---
 
-<img src="./logo.png" class="w-24 mx-auto mb-8" />
+<img src="/logo.png" class="w-24 mx-auto mb-8" />
 
 # Вопросы?
 

@@ -174,11 +174,11 @@ layout: default
 </div>
 
 <div class="card !border-violet/40">
-  <span class="eyebrow !text-violet-light">Cloud + Security</span>
+  <span class="eyebrow !text-violet-light">Security + GTM</span>
   <ul class="text-sm dim space-y-2 mt-3">
-    <li class="flex gap-2"><span class="violet">·</span><span><b class="text-chalk">Vard Cloud</b> beta · managed-хостинг</span></li>
-    <li class="flex gap-2"><span class="violet">·</span><span>SOC 2 Type I · подготовка через Vanta / Drata</span></li>
+    <li class="flex gap-2"><span class="violet">·</span><span><b class="text-chalk">SOC 2 Type I</b> · подготовка через Vanta / Drata</span></li>
     <li class="flex gap-2"><span class="violet">·</span><span>Партнёрство с US data consultancies</span></li>
+    <li class="flex gap-2"><span class="violet">·</span><span>Реестр российского ПО · подача через Минцифры</span></li>
     <li class="flex gap-2"><span class="teal font-semibold">→</span><span class="text-chalk">$250k ARR · 5+ enterprise · 2k+ stars</span></li>
   </ul>
 </div>
@@ -186,10 +186,11 @@ layout: default
 </div>
 
 <div class="card mt-6 !p-5">
-  <span class="eyebrow">Архитектурные решения Q3</span>
+  <span class="eyebrow">Решено · никакого Cloud SaaS</span>
   <p class="text-sm dim mt-2">
-    К Q3 решить: где Cloud control plane живёт (Delaware DE / Estonia EE / UAE) ·
-    как изолировать tenants · какие резервные регионы · backups strategy.
+    Pure open-core: Community $0 · Self-hosted Pro $49 · Enterprise. Managed-хостинга мы не делаем —
+    экономика SaaS не сходится при наших ценах (GPU для Ollama съест маржу), а позиция «privacy-first, ваши данные у вас»
+    противоречит идее «мы хостим за вас». Возвращаемся к вопросу через 1–2 года, если будет явный спрос.
   </p>
 </div>
 
@@ -204,12 +205,12 @@ layout: default
 <div class="card !border-teal/40">
   <span class="eyebrow !text-teal-light">Технические</span>
   <ul class="text-sm dim space-y-2 mt-3">
-    <li class="flex gap-2"><span class="teal">·</span><span><b class="text-chalk">Vard Cloud GA</b></span></li>
     <li class="flex gap-2"><span class="teal">·</span><span><b class="text-chalk">Tauri desktop GA</b> · auto-update · code signing · Mac/Win/Linux</span></li>
     <li class="flex gap-2"><span class="teal">·</span><span><b class="text-chalk">SOC 2 Type II</b> audit (полноценный)</span></li>
     <li class="flex gap-2"><span class="teal">·</span><span>Air-gapped deploy guide</span></li>
     <li class="flex gap-2"><span class="teal">·</span><span>SCIM provisioning</span></li>
     <li class="flex gap-2"><span class="teal">·</span><span>PII column masking · data lineage (roadmap)</span></li>
+    <li class="flex gap-2"><span class="teal">·</span><span>Helm chart 1.0 · production-ready</span></li>
   </ul>
 </div>
 
@@ -309,7 +310,7 @@ layout: default
   Connectors: 6 БД (Snow/BQ/CH/Redshift/...)
   dbt parser · Audit log · git versioning
 
-  Docker · Helm · air-gapped · Vard Cloud
+  Docker · Helm · air-gapped · Tauri desktop
 ```
 
 </div>
@@ -514,52 +515,6 @@ layout: default
   </ul>
 </div>
 
-</div>
-
----
-layout: default
----
-
-# Vard Cloud · архитектурный набросок
-
-<div class="card mt-8 !p-5">
-
-```
-                    User browser
-                         │
-                  app.vard.cloud
-                         ▼
-                  ┌──────────────┐
-                  │  Cloudflare  │ DDoS, edge cache, geo-routing
-                  └──────┬───────┘
-                         ▼
-              ┌──────────────────┐
-              │  Control plane   │ tenant management, billing, SSO
-              │  (multi-region)  │
-              └──────┬───────┬───┘
-                     │       │
-             ┌───────▼─┐   ┌─▼──────────┐
-             │  US     │   │  EU        │  data plane regions
-             │  region │   │  region    │  isolated per tenant
-             │  K8s    │   │  K8s       │  Postgres + Ollama + apps
-             └─────────┘   └────────────┘
-```
-
-</div>
-
-<div class="grid grid-cols-3 gap-3 mt-4">
-  <div class="card !p-4">
-    <div class="eyebrow !text-teal-light">Tenant isolation</div>
-    <p class="text-xs dim">Namespace per tenant · network policies · separate Postgres schema</p>
-  </div>
-  <div class="card !p-4">
-    <div class="eyebrow !text-violet-light">Billing</div>
-    <p class="text-xs dim">Stripe · usage metering · seat counter · monthly + annual</p>
-  </div>
-  <div class="card !p-4">
-    <div class="eyebrow !text-teal-light">Compliance</div>
-    <p class="text-xs dim">SOC 2 Type II · data residency · audit + DPA shipped</p>
-  </div>
 </div>
 
 ---

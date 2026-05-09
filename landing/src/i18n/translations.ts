@@ -20,8 +20,8 @@ export const translations = {
     },
     hero: {
       pill: 'v0.1 — source-available · BSL 1.1',
-      titleA: 'The self-hosted data notebook',
-      titleB: 'that runs on your own infra.',
+      titleA: 'The data notebook',
+      titleB: 'that runs on your machine.',
       subtitle:
         'Collaborative SQL, Python and R notebooks with a local AI assistant. Your data and your AI never leave your network.',
       ctaPrimary: 'Try the live demo',
@@ -44,7 +44,7 @@ export const translations = {
     trustBar: {
       eyebrow: 'Pre-launch · v0.1',
       message:
-        'We just shipped Vard. Self-host the MVP, kick the tires, file the issues — help shape what gets built next.',
+        'We just shipped Vard. Run the MVP locally, kick the tires, file the issues — help shape what gets built next.',
       github: 'Star us on GitHub',
     },
     pillars: {
@@ -53,7 +53,7 @@ export const translations = {
       items: [
         {
           title: 'Your data, your network.',
-          body: 'Self-host with Docker or Kubernetes. No SaaS, no vendor lock-in. Architecture built for SOC 2 (certification in progress, target Q3 2026).',
+          body: 'Runs on your laptop, your VM, or your K8s. No SaaS, no vendor lock-in. Architecture built for SOC 2 (certification in progress, target Q3 2026).',
         },
         {
           title: 'AI without sending data anywhere.',
@@ -108,7 +108,7 @@ export const translations = {
       bodyB: 'Vard runs entirely inside your network — including the LLM.',
       kicker: 'No data leaves. Ever.',
       badges: [
-        'Self-hosted via Docker or Kubernetes',
+        'Runs on your laptop, VM, or K8s',
         'Local LLM via Ollama (or bring your own)',
         'Source-available under BSL 1.1',
       ],
@@ -151,13 +151,13 @@ export const translations = {
       title: 'Pricing',
       subtitle: 'Free forever for internal use. Pay when you need more.',
       callout:
-        'You self-host the software. We charge for the license and Pro features — never for your data or your hardware.',
+        'You run the software on your hardware. We charge for the license and Pro features — never for your data or your machines.',
       tiers: [
         {
           name: 'Community',
           price: '$0',
           period: 'forever',
-          pitch: 'Self-host. Up to 5 users. Unlimited notebooks. Local AI. Community support.',
+          pitch: 'Run locally. Up to 5 users. Unlimited notebooks. Local AI. Community support.',
           cta: 'Deploy free',
           features: ['Self-hosted', 'Up to 5 users', 'Unlimited notebooks', 'Local AI (Ollama)', 'Community support'],
         },
@@ -165,7 +165,7 @@ export const translations = {
           name: 'Self-hosted Pro',
           price: '$49',
           period: 'per user / month · from 10 seats',
-          pitch: 'Self-host with Pro features.',
+          pitch: 'Run locally with Pro features.',
           cta: 'Start 14-day trial',
           features: ['Project RBAC', 'Audit log lite', 'Notebook versioning', 'Priority email', 'All Community features'],
         },
@@ -185,7 +185,7 @@ export const translations = {
           a: 'Yes. Source-available under Business Source License 1.1; converts to Apache 2.0 on 2030-01-01. Free for internal use, forever.',
         },
         {
-          q: 'What am I paying for if I self-host it myself?',
+          q: 'What am I paying for if I run it on my own hardware?',
           a: 'The commercial license and the closed-source Pro / Enterprise features — project RBAC, audit log, SSO, custom connectors, priority support. Same open-core model as Sentry, GitLab, CockroachDB. Your data, your AI, and your hardware stay yours; you never pay us for hosting.',
         },
         {
@@ -202,7 +202,7 @@ export const translations = {
         },
         {
           q: 'Is my data sent anywhere?',
-          a: 'No. Vard is fully self-hosted. Even AI runs locally.',
+          a: 'No. Vard runs entirely on your machines — even the AI is local.',
         },
         {
           q: 'Do you have SOC 2?',
@@ -216,8 +216,8 @@ export const translations = {
     },
     finalCta: {
       titleA: 'Ready to give your data team a notebook',
-      titleB: 'they can actually run on prem?',
-      ctaPrimary: 'Deploy with Docker',
+      titleB: 'that actually runs on their hardware?',
+      ctaPrimary: 'Try it locally',
       ctaSecondary: 'Talk to us',
     },
     contact: {
@@ -236,7 +236,7 @@ export const translations = {
       note: 'We typically reply within 1 business day. No marketing emails — ever.',
     },
     footer: {
-      tagline: 'The data notebook with local AI. Source-available, self-hosted by design.',
+      tagline: 'The data notebook with local AI. Source-available, local by design.',
       copyright: "© 2026 Vard · Built for data teams who can't go cloud.",
       madeWith: 'Made with ☕ and a healthy distrust of the cloud.',
       linksTitle: 'Links',
@@ -271,8 +271,8 @@ export const translations = {
     },
     hero: {
       pill: 'v0.1 — source-available · BSL 1.1',
-      titleA: 'Self-hosted ноутбук для данных,',
-      titleB: 'который работает на вашей инфраструктуре.',
+      titleA: 'Ноутбук для данных,',
+      titleB: 'который работает у вас.',
       subtitle:
         'Совместные SQL, Python и R ноутбуки с локальным AI-ассистентом. Ваши данные и ваш AI не покидают вашу сеть.',
       ctaPrimary: 'Открыть демо',
@@ -295,7 +295,7 @@ export const translations = {
     trustBar: {
       eyebrow: 'Pre-launch · v0.1',
       message:
-        'Мы только запустили Vard. Разверните MVP, попробуйте на реальных задачах, заведите issue — помогите задать roadmap.',
+        'Мы только запустили Vard. Запустите MVP у себя, попробуйте на реальных задачах, заведите issue — помогите задать roadmap.',
       github: 'Поставить звезду на GitHub',
     },
     pillars: {
@@ -304,7 +304,7 @@ export const translations = {
       items: [
         {
           title: 'Ваши данные — в вашей сети.',
-          body: 'Self-hosted через Docker или Kubernetes. Никакого SaaS, никакого vendor lock-in. Архитектура построена под SOC 2 (сертификация в процессе, цель Q3 2026).',
+          body: 'Запускается на вашем ноутбуке, VM или K8s. Никакого SaaS, никакого vendor lock-in. Архитектура построена под SOC 2 (сертификация в процессе, цель Q3 2026).',
         },
         {
           title: 'AI без отправки данных наружу.',
@@ -358,7 +358,7 @@ export const translations = {
       bodyB: 'Vard работает целиком внутри вашей сети — включая LLM.',
       kicker: 'Данные не уходят. Никогда.',
       badges: [
-        'Self-hosted через Docker или Kubernetes',
+        'Работает на вашем ноутбуке, VM или K8s',
         'Локальная LLM через Ollama (или своя)',
         'Source-available под BSL 1.1',
       ],
@@ -401,13 +401,13 @@ export const translations = {
       title: 'Тарифы',
       subtitle: 'Бесплатно навсегда для внутреннего использования. Платите, когда нужно больше.',
       callout:
-        'Вы хостите сами. Мы берём деньги за лицензию и Pro-фичи — никогда за ваши данные и не за ваше железо.',
+        'Вы запускаете у себя. Мы берём деньги за лицензию и Pro-фичи — никогда за ваши данные и не за ваше железо.',
       tiers: [
         {
           name: 'Community',
           price: '$0',
           period: 'навсегда',
-          pitch: 'Self-host. До 5 пользователей. Безлимит ноутбуков. Локальный AI. Поддержка сообществом.',
+          pitch: 'Запускается локально. До 5 пользователей. Безлимит ноутбуков. Локальный AI. Поддержка сообществом.',
           cta: 'Развернуть бесплатно',
           features: ['Self-hosted', 'До 5 пользователей', 'Безлимит ноутбуков', 'Локальный AI (Ollama)', 'Поддержка сообществом'],
         },
@@ -415,7 +415,7 @@ export const translations = {
           name: 'Self-hosted Pro',
           price: '$49',
           period: 'за пользователя / мес · от 10 мест',
-          pitch: 'Self-host с Pro-функциями.',
+          pitch: 'Запускается локально, с Pro-функциями.',
           cta: 'Триал 14 дней',
           features: ['Проектный RBAC', 'Audit log lite', 'Версионирование ноутбуков', 'Приоритетная email-поддержка', 'Всё из Community'],
         },
@@ -435,7 +435,7 @@ export const translations = {
           a: 'Да. Source-available под Business Source License 1.1; 1 января 2030 лицензия автоматически переходит в Apache 2.0. Бесплатно для внутреннего использования, навсегда.',
         },
         {
-          q: 'За что я плачу, если хостю всё сам?',
+          q: 'За что я плачу, если запускаю на своём железе?',
           a: 'За коммерческую лицензию и закрытые Pro / Enterprise-фичи — проектный RBAC, audit log, SSO, кастомные коннекторы, приоритетную поддержку. Та же open-core модель, что у Sentry, GitLab, CockroachDB. Ваши данные, ваш AI и ваше железо остаются у вас; за хостинг вы нам не платите никогда.',
         },
         {
@@ -452,7 +452,7 @@ export const translations = {
         },
         {
           q: 'Куда уходят мои данные?',
-          a: 'Никуда. Vard полностью self-hosted. Даже AI работает локально.',
+          a: 'Никуда. Vard работает целиком на ваших машинах — даже AI локальный.',
         },
         {
           q: 'Есть ли SOC 2?',
@@ -466,8 +466,8 @@ export const translations = {
     },
     finalCta: {
       titleA: 'Готовы дать вашей data-команде ноутбук,',
-      titleB: 'который реально можно запустить on-prem?',
-      ctaPrimary: 'Развернуть через Docker',
+      titleB: 'который реально работает на их машинах?',
+      ctaPrimary: 'Запустить у себя',
       ctaSecondary: 'Связаться с нами',
     },
     contact: {
@@ -486,7 +486,7 @@ export const translations = {
       note: 'Обычно отвечаем в течение рабочего дня. Никаких маркетинговых рассылок.',
     },
     footer: {
-      tagline: 'Ноутбук для данных с локальным AI. Source-available, self-hosted by design.',
+      tagline: 'Ноутбук для данных с локальным AI. Source-available, локальный по архитектуре.',
       copyright: '© 2026 Vard · Сделано для data-команд, которым нельзя в облако.',
       madeWith: 'Сделано на ☕ и здоровом недоверии к облаку.',
       linksTitle: 'Ссылки',
