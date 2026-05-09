@@ -4,7 +4,7 @@ title: Vard — for Data Teams That Can't Go Cloud
 canvasWidth: 1280
 aspectRatio: "16/10"
 info: |
-  Vard — open-source, self-hosted data notebook with local AI.
+  Vard — self-hosted data notebook with local AI (source-available, BSL 1.1).
   For data teams in regulated industries: banks, healthcare, gov, defense.
 class: text-center
 highlighter: shiki
@@ -102,7 +102,7 @@ class: text-center
 <div class="mt-10 flex justify-center gap-3">
   <span class="pill teal">✓ Self-hosted</span>
   <span class="pill teal">✓ Local AI</span>
-  <span class="pill teal">✓ Open-source</span>
+  <span class="pill teal">✓ Source-available</span>
 </div>
 
 ---
@@ -377,7 +377,7 @@ layout: default
     <tr><td class="p-3 dim">Self-hosted</td><td class="p-3 text-center !bg-teal/[0.04] teal">✓</td><td class="p-3 text-center mute">✕</td><td class="p-3 text-center mute">✕</td><td class="p-3 text-center teal">✓</td><td class="p-3 text-center teal">✓</td></tr>
     <tr><td class="p-3 dim">Local AI · no data leaves</td><td class="p-3 text-center !bg-teal/[0.04] teal">✓</td><td class="p-3 text-center mute">✕</td><td class="p-3 text-center mute">✕</td><td class="p-3 text-center mute">✕</td><td class="p-3 text-center mute">✕</td></tr>
     <tr><td class="p-3 dim">Real-time collaboration</td><td class="p-3 text-center !bg-teal/[0.04] teal">✓</td><td class="p-3 text-center teal">✓</td><td class="p-3 text-center teal">✓</td><td class="p-3 text-center mute">✕</td><td class="p-3 text-center mute">✕</td></tr>
-    <tr><td class="p-3 dim">Open-source</td><td class="p-3 text-center !bg-teal/[0.04] teal">✓</td><td class="p-3 text-center mute">✕</td><td class="p-3 text-center mute">✕</td><td class="p-3 text-center teal">✓</td><td class="p-3 text-center teal">✓</td></tr>
+    <tr><td class="p-3 dim">Open-source</td><td class="p-3 text-center !bg-teal/[0.04] dim">~ <span class="text-[10px] mute">BSL</span></td><td class="p-3 text-center mute">✕</td><td class="p-3 text-center mute">✕</td><td class="p-3 text-center teal">✓</td><td class="p-3 text-center teal">✓</td></tr>
     <tr><td class="p-3 dim">SQL + Python + R</td><td class="p-3 text-center !bg-teal/[0.04] teal">✓</td><td class="p-3 text-center dim">~</td><td class="p-3 text-center teal">✓</td><td class="p-3 text-center dim">~</td><td class="p-3 text-center dim">~</td></tr>
     <tr><td class="p-3 dim">Modern AI assistant</td><td class="p-3 text-center !bg-teal/[0.04] teal">✓</td><td class="p-3 text-center teal">✓</td><td class="p-3 text-center teal">✓</td><td class="p-3 text-center mute">✕</td><td class="p-3 text-center mute">✕</td></tr>
     <tr><td class="p-3 dim">SSO / SAML</td><td class="p-3 text-center !bg-teal/[0.04] teal">Ent</td><td class="p-3 text-center teal">✓</td><td class="p-3 text-center teal">✓</td><td class="p-3 text-center dim">~</td><td class="p-3 text-center dim">~</td></tr>
@@ -537,7 +537,7 @@ layout: default
 <div class="card !p-5 flex items-start gap-4">
   <div class="teal text-xl">→</div>
   <div>
-    <span class="text-chalk font-medium">Open-source, BSL 1.1 license.</span>
+    <span class="text-chalk font-medium">Source-available under BSL 1.1 (Apache 2.0 in 2030).</span>
     <span class="dim"> No SaaS lock-in. Your team can audit the code.</span>
   </div>
 </div>

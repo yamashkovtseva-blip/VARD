@@ -4,8 +4,8 @@ title: Vard — Investor Deck
 canvasWidth: 1280
 aspectRatio: "16/10"
 info: |
-  Vard — open-source data notebook with local AI.
-  Self-hosted alternative to Hex and Deepnote for regulated industries.
+  Vard — self-hosted data notebook with local AI (source-available, BSL 1.1).
+  Alternative to Hex and Deepnote for regulated industries.
 class: text-center
 highlighter: shiki
 lineNumbers: false
@@ -35,7 +35,7 @@ favicon: /logo.png
 <div class="flex flex-col items-center justify-center min-h-[70vh]">
   <img src="./logo.png" class="w-32 mb-8" />
   <h1 class="!text-6xl !mb-4">VARD</h1>
-  <p class="text-2xl mb-2 dim">The open-source data notebook</p>
+  <p class="text-2xl mb-2 dim">The self-hosted data notebook</p>
   <p class="text-2xl text-gradient font-semibold">that runs on your own infra.</p>
 
   <div class="mt-16 text-sm mute">
@@ -215,7 +215,7 @@ layout: default
 </div>
 
 <div class="card">
-  <span class="eyebrow !text-violet-light">Open-source</span>
+  <span class="eyebrow !text-violet-light">Source-available</span>
   <h3 class="!text-chalk !text-lg !mb-2">Self-hosted, BSL 1.1</h3>
   <p class="text-sm dim"><code class="!text-xs">docker compose up</code>. Free for internal use.</p>
 </div>
@@ -541,7 +541,7 @@ layout: default
   <h3 class="!text-chalk !text-lg !mb-1">Nikolai Borodulin</h3>
   <p class="text-xs teal mb-3">Founder · CTO</p>
   <p class="text-xs dim">
-    Built Vard MVP. Background: [expertise placeholder]. ВКР-проект, выводит в open-source.
+    Built Vard MVP. Thesis project, released under Business Source License 1.1.
   </p>
 </div>
 
@@ -583,7 +583,7 @@ layout: default
   <ul class="space-y-2.5 text-sm mt-3">
     <li class="flex items-start gap-3"><span class="teal">✓</span><span>MVP working: SQL + Python + R, real-time collab, local AI</span></li>
     <li class="flex items-start gap-3"><span class="teal">✓</span><span>Live demo running at <span class="dim font-mono">vard.ru.tuna.am</span></span></li>
-    <li class="flex items-start gap-3"><span class="teal">✓</span><span>Open-source: <span class="dim font-mono">github.com/nborodulin471/vard</span></span></li>
+    <li class="flex items-start gap-3"><span class="teal">✓</span><span>Source-available · BSL 1.1: <span class="dim font-mono">github.com/nborodulin471/vard</span></span></li>
     <li class="flex items-start gap-3"><span class="teal">✓</span><span>30+ user interviews — privacy is #1 pain</span></li>
     <li class="flex items-start gap-3"><span class="mute">○</span><span class="dim">Public launch: planned for Q2</span></li>
     <li class="flex items-start gap-3"><span class="mute">○</span><span class="dim">First paying customer: planned for Q2</span></li>
@@ -680,7 +680,7 @@ layout: default
   <div class="font-mono text-chalk text-base w-32">BSL 1.1</div>
   <div class="text-sm flex-1">
     <span class="text-chalk">→ Companies use freely. Competitors can't host as service.</span><br/>
-    <span class="dim">Converts to Apache 2.0 in 4 years.</span>
+    <span class="dim">Auto-converts to Apache 2.0 on 2030-01-01.</span>
   </div>
 </div>
 

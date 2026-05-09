@@ -272,8 +272,8 @@ export const translations = {
       cta: 'Начать',
     },
     hero: {
-      pill: 'v0.1 — open-source под лицензией BSL 1.1',
-      titleA: 'Open-source ноутбук для данных,',
+      pill: 'v0.1 — source-available · BSL 1.1',
+      titleA: 'Self-hosted ноутбук для данных,',
       titleB: 'который работает на вашей инфраструктуре.',
       subtitle:
         'Совместные SQL, Python и R ноутбуки с локальным AI-ассистентом. Ваши данные и ваш AI не покидают вашу сеть.',
@@ -362,7 +362,7 @@ export const translations = {
       badges: [
         'Self-hosted через Docker или Kubernetes',
         'Локальная LLM через Ollama (или своя)',
-        'Open-source под лицензией BSL 1.1',
+        'Source-available под BSL 1.1',
       ],
     },
     comparison: {
@@ -442,7 +442,7 @@ export const translations = {
       faqs: [
         {
           q: 'Vard правда бесплатный?',
-          a: 'Да. Сегодня BSL 1.1, через 4 года переход на Apache 2.0. Бесплатно для внутреннего использования, навсегда.',
+          a: 'Да. Source-available под Business Source License 1.1; 1 января 2030 лицензия автоматически переходит в Apache 2.0. Бесплатно для внутреннего использования, навсегда.',
         },
         {
           q: 'Можно использовать свою LLM (OpenAI, Claude, локальную)?',
@@ -492,7 +492,7 @@ export const translations = {
       formNote: 'Обычно отвечаем в течение рабочего дня. Никаких маркетинговых рассылок.',
     },
     footer: {
-      tagline: 'Open-source ноутбук для данных с локальным AI. Self-hosted by design.',
+      tagline: 'Ноутбук для данных с локальным AI. Source-available, self-hosted by design.',
       copyright: '© 2026 Vard · Сделано для data-команд, которым нельзя в облако.',
       madeWith: 'Сделано на ☕ и здоровом недоверии к облаку.',
       cols: [

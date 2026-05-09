@@ -1,6 +1,6 @@
 # Vard — Marketing Site & Presentations
 
-Open-source data notebook with local AI assistant. Self-hosted alternative to Hex and Deepnote for regulated industries.
+Self-hosted data notebook with local AI assistant. Source-available under BSL 1.1; converts to Apache 2.0 on 2030-01-01. Alternative to Hex and Deepnote for regulated industries.
 
 - Product repo: https://github.com/nborodulin471/vard
 - Live demo: https://vard.ru.tuna.am/login (creds: `demo@vard.local` / `DemoPass123!`)
@@ -72,4 +72,5 @@ npm run sales:export         # → dist/vard-sales-deck.pdf
 ## License
 
 Marketing assets — all rights reserved.
-Product (separate repo) is BSL 1.1, transitions to Apache 2.0 in 2030.
+Product (separate repo) is source-available under Business Source License 1.1.
+On 2030-01-01 the license converts to Apache License 2.0.

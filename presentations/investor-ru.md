@@ -4,7 +4,7 @@ title: Vard — Питч для инвесторов
 canvasWidth: 1280
 aspectRatio: "16/10"
 info: |
-  Vard — open-source ноутбук для данных с локальным AI.
+  Vard — self-hosted ноутбук для данных с локальным AI (source-available, BSL 1.1).
   Self-hosted альтернатива Hex и Deepnote для регулируемых индустрий.
 class: text-center
 highlighter: shiki
@@ -35,7 +35,7 @@ favicon: /logo.png
 <div class="flex flex-col items-center justify-center min-h-[70vh]">
   <img src="./logo.png" class="w-32 mb-8" />
   <h1 class="!text-6xl !mb-4">VARD</h1>
-  <p class="text-2xl mb-2 dim">Open-source ноутбук для данных,</p>
+  <p class="text-2xl mb-2 dim">Self-hosted ноутбук для данных,</p>
   <p class="text-2xl text-gradient font-semibold">который работает на вашей инфраструктуре.</p>
 
   <div class="mt-16 text-sm mute">
@@ -200,7 +200,7 @@ layout: default
 </div>
 
 <div class="card">
-  <span class="eyebrow !text-violet-light">Open-source</span>
+  <span class="eyebrow !text-violet-light">Source-available</span>
   <h3 class="!text-chalk !text-lg !mb-2">Self-hosted, BSL 1.1</h3>
   <p class="text-sm dim"><code class="!text-xs">docker compose up</code>. Бесплатно для внутреннего использования.</p>
 </div>
@@ -503,7 +503,7 @@ layout: default
   <h3 class="!text-chalk !text-lg !mb-1">Николай Бородулин</h3>
   <p class="text-xs teal mb-3">Founder · CTO</p>
   <p class="text-xs dim">
-    Построил Vard MVP. Бэкграунд: [экспертиза]. ВКР-проект, выводит в open-source.
+    Построил Vard MVP. ВКР-проект, опубликован под Business Source License 1.1.
   </p>
 </div>
 
@@ -540,7 +540,7 @@ layout: default
   <ul class="space-y-2.5 text-sm mt-3">
     <li class="flex items-start gap-3"><span class="teal">✓</span><span>MVP работает: SQL + Python + R, real-time коллаборация, локальный AI</span></li>
     <li class="flex items-start gap-3"><span class="teal">✓</span><span>Живая демо на <span class="dim font-mono">vard.ru.tuna.am</span></span></li>
-    <li class="flex items-start gap-3"><span class="teal">✓</span><span>Open-source: <span class="dim font-mono">github.com/nborodulin471/vard</span></span></li>
+    <li class="flex items-start gap-3"><span class="teal">✓</span><span>Открытый код · BSL 1.1: <span class="dim font-mono">github.com/nborodulin471/vard</span></span></li>
     <li class="flex items-start gap-3"><span class="teal">✓</span><span>30+ user interviews — приватность это пейн #1</span></li>
     <li class="flex items-start gap-3"><span class="mute">○</span><span class="dim">Публичный запуск: запланирован на Q2</span></li>
     <li class="flex items-start gap-3"><span class="mute">○</span><span class="dim">Первый платящий клиент: запланирован на Q2</span></li>
@@ -633,7 +633,7 @@ layout: default
   <div class="font-mono text-chalk text-base w-32">BSL 1.1</div>
   <div class="text-sm flex-1">
     <span class="text-chalk">→ Компании используют свободно. Конкуренты не могут хостить как сервис.</span><br/>
-    <span class="dim">Через 4 года переход на Apache 2.0.</span>
+    <span class="dim">1 января 2030 автоматически переходит в Apache 2.0.</span>
   </div>
 </div>
 

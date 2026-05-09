@@ -70,7 +70,8 @@ layout: default
 </div>
 
 <div class="mt-6 text-center text-sm dim">
-  Стек · React + TS + Vite + Monaco / FastAPI + SQLAlchemy + WebSocket / PostgreSQL / Ollama / Yjs / Docker Compose
+  Локальное приложение · ставится на компьютер пользователя через <code>docker compose up</code><br/>
+  UI · React + Monaco · Backend · FastAPI + SQLAlchemy + WebSocket · Storage · PostgreSQL · AI · Ollama · Realtime · Yjs
 </div>
 
 ---
@@ -236,13 +237,15 @@ layout: default
   <span class="eyebrow">Сейчас · MVP</span>
 
 ```
-Browser (React + Monaco)
+Локальное приложение · машина пользователя
+─────────────────────────────────────────
+  UI (React + Monaco)
        ↓
-FastAPI · WebSocket
+  FastAPI · WebSocket
        ↓
   Postgres · Ollama · Yjs
 
-Docker Compose only
+  Docker Compose · ставится одной командой
 ```
 
 </div>
@@ -251,17 +254,18 @@ Docker Compose only
   <span class="eyebrow !text-teal-light">Target · Q4</span>
 
 ```
-Browser (React + Monaco)
+Локальное приложение · машина или K8s
+─────────────────────────────────────────
+  UI (React + Monaco)
        ↓
-FastAPI · WebSocket · SSO
+  FastAPI · WebSocket · SSO
        ↓
-Postgres + replicas · Ollama / BYO LLM
-Hocuspocus (Yjs scaling)
-Connectors: DuckDB · Snowflake · BQ ·
-            Redshift · ClickHouse · Databricks
-dbt parser · Audit log · Notebook git store
+  Postgres + replicas · Ollama / BYO LLM
+  Hocuspocus (Yjs scaling)
+  Connectors: 6 БД (Snow/BQ/CH/Redshift/...)
+  dbt parser · Audit log · git versioning
 
-Docker · Helm · air-gapped · Vard Cloud
+  Docker · Helm · air-gapped · Vard Cloud
 ```
 
 </div>
@@ -443,9 +447,9 @@ layout: default
 <div class="card">
   <span class="eyebrow !text-teal-light">Компоненты</span>
   <ul class="text-sm dim space-y-1.5 mt-3">
-    <li class="flex gap-2"><span class="teal">·</span><span>Frontend (Nginx + static)</span></li>
+    <li class="flex gap-2"><span class="teal">·</span><span>UI bundle (Nginx + static · React build)</span></li>
     <li class="flex gap-2"><span class="teal">·</span><span>Backend (FastAPI · several replicas)</span></li>
-    <li class="flex gap-2"><span class="teal">·</span><span>WebSocket layer (sticky sessions)</span></li>
+    <li class="flex gap-2"><span class="teal">·</span><span>Realtime layer (sticky sessions для WebSocket)</span></li>
     <li class="flex gap-2"><span class="teal">·</span><span>Postgres (StatefulSet или external)</span></li>
     <li class="flex gap-2"><span class="teal">·</span><span>Ollama (GPU optional, separate pool)</span></li>
     <li class="flex gap-2"><span class="teal">·</span><span>Yjs / Hocuspocus collab layer</span></li>
