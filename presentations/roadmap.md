@@ -25,7 +25,7 @@ favicon: /logo.png
 </style>
 
 <div class="flex flex-col items-center justify-center min-h-[70vh]">
-  <img src="./logo.png" class="w-32 mb-8" />
+  <img src="/logo.png" class="w-32 mb-8" />
   <h1 class="!text-5xl !mb-3">VARD</h1>
   <p class="text-2xl mb-2 dim">Roadmap разработки</p>
   <p class="text-xl text-gradient font-semibold">Q1 → Q4 · 90-day plan · tech deep-dives</p>
@@ -234,34 +234,36 @@ layout: default
 
 <div class="card">
   <span class="eyebrow">Сейчас · MVP</span>
-  <pre class="!text-[11px] !p-3 mt-3"><code>Browser (React + Monaco)
-   │
-   ▼
-FastAPI · WebSocket
-   ├──▶ Postgres
-   ├──▶ Ollama
-   └──▶ Yjs
 
-Docker Compose only</code></pre>
+```
+Browser (React + Monaco)
+       ↓
+FastAPI · WebSocket
+       ↓
+  Postgres · Ollama · Yjs
+
+Docker Compose only
+```
+
 </div>
 
 <div class="card !border-teal/40">
   <span class="eyebrow !text-teal-light">Target · Q4</span>
-  <pre class="!text-[11px] !p-3 mt-3"><code>Browser (React + Monaco)
-   │
-   ▼
-FastAPI · WebSocket · SSO
-   ├──▶ Postgres + read replicas
-   ├──▶ Ollama / BYO LLM
-   ├──▶ Hocuspocus (Yjs scaling)
-   ├──▶ Connectors hub
-   │     · DuckDB · Snowflake
-   │     · BQ · Redshift · CH · Databricks
-   ├──▶ dbt parser
-   ├──▶ Audit log · SIEM export
-   └──▶ Notebook git store
 
-Docker · Helm · air-gapped · Vard Cloud</code></pre>
+```
+Browser (React + Monaco)
+       ↓
+FastAPI · WebSocket · SSO
+       ↓
+Postgres + replicas · Ollama / BYO LLM
+Hocuspocus (Yjs scaling)
+Connectors: DuckDB · Snowflake · BQ ·
+            Redshift · ClickHouse · Databricks
+dbt parser · Audit log · Notebook git store
+
+Docker · Helm · air-gapped · Vard Cloud
+```
+
 </div>
 
 </div>
@@ -606,7 +608,7 @@ layout: center
 class: text-center
 ---
 
-<img src="./logo.png" class="w-20 mx-auto mb-6" />
+<img src="/logo.png" class="w-20 mx-auto mb-6" />
 
 # Roadmap · к sprint planning
 

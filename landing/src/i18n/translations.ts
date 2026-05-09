@@ -3,7 +3,7 @@ export type Lang = 'en' | 'ru';
 export const translations = {
   en: {
     meta: {
-      title: 'Vard — Open-source data notebook with local AI',
+      title: 'Vard — Self-hosted data notebook with local AI',
       description:
         'Self-hosted alternative to Hex and Deepnote. Collaborative SQL, Python and R notebooks with a local LLM. Deploy in 60 seconds.',
     },
@@ -20,8 +20,8 @@ export const translations = {
       cta: 'Get started',
     },
     hero: {
-      pill: 'v0.1 — open-source under BSL 1.1',
-      titleA: 'The open-source data notebook',
+      pill: 'v0.1 — source-available · BSL 1.1',
+      titleA: 'The self-hosted data notebook',
       titleB: 'that runs on your own infra.',
       subtitle:
         'Collaborative SQL, Python and R notebooks with a local AI assistant. Your data and your AI never leave your network.',
@@ -111,7 +111,7 @@ export const translations = {
       badges: [
         'Self-hosted via Docker or Kubernetes',
         'Local LLM via Ollama (or bring your own)',
-        'Open-source under BSL 1.1',
+        'Source-available under BSL 1.1',
       ],
     },
     comparison: {
@@ -191,7 +191,7 @@ export const translations = {
       faqs: [
         {
           q: 'Is Vard really free?',
-          a: 'Yes. BSL 1.1 today, transitioning to Apache 2.0 in 4 years. Free for internal use, forever.',
+          a: 'Yes. Source-available under Business Source License 1.1; converts to Apache 2.0 on 2030-01-01. Free for internal use, forever.',
         },
         {
           q: 'Can I use my own LLM (OpenAI, Claude, local)?',
@@ -241,7 +241,7 @@ export const translations = {
       formNote: 'We typically reply within 1 business day. No marketing emails — ever.',
     },
     footer: {
-      tagline: 'The open-source data notebook with a local AI assistant. Self-hosted by design.',
+      tagline: 'The data notebook with local AI. Source-available, self-hosted by design.',
       copyright: "© 2026 Vard · Built for data teams who can't go cloud.",
       madeWith: 'Made with ☕ and a healthy distrust of the cloud.',
       cols: [
@@ -255,7 +255,7 @@ export const translations = {
   },
   ru: {
     meta: {
-      title: 'Vard — Open-source ноутбук для данных с локальным AI',
+      title: 'Vard — Self-hosted ноутбук для данных с локальным AI',
       description:
         'Self-hosted альтернатива Hex и Deepnote. Совместная работа в SQL, Python и R с локальной LLM. Развёртывание за 60 секунд.',
     },

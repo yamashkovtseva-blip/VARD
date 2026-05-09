@@ -1,0 +1,1 @@
+var e=`/VARD/roadmap/logo.png`;export{e as t};

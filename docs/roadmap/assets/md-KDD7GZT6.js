@@ -1,0 +1,9 @@
+import{L as e,T as t,Y as n,_ as r,b as i,g as a,gt as o,mt as s}from"./modules/shiki-BiiZU2CK.js";import{n as c,t as l}from"./slidev/context-CMhqCnrz.js";import{t as u}from"./slidev/default-BjsITUiY.js";var d={__name:`roadmap.md__slidev_10`,setup(d){let{$slidev:f,$nav:p,$clicksContext:m,$clicks:h,$page:g,$renderContext:_,$frontmatter:v}=c();return m.setup(),(c,d)=>(e(),r(u,o(t(s(l)(s(v),9))),{default:n(()=>[...d[0]||=[a(`h1`,null,`Audit log · что и как логировать`,-1),a(`div`,{class:`grid grid-cols-2 gap-5 mt-6`},[a(`div`,{class:`card !border-teal/40`},[a(`span`,{class:`eyebrow !text-teal-light`},`События для логирования`),a(`ul`,{class:`text-xs dim space-y-1.5 mt-3`},[a(`li`,null,[i(`· `),a(`b`,{class:`text-chalk`},`Auth`),i(` · login, logout, fail, MFA, session expire`)]),a(`li`,null,[i(`· `),a(`b`,{class:`text-chalk`},`Notebook`),i(` · create, edit, delete, share, fork`)]),a(`li`,null,[i(`· `),a(`b`,{class:`text-chalk`},`Cell`),i(` · execute SQL, execute Python/R, comment`)]),a(`li`,null,[i(`· `),a(`b`,{class:`text-chalk`},`Data`),i(` · query rows, export, schema view, connection add`)]),a(`li`,null,[i(`· `),a(`b`,{class:`text-chalk`},`Admin`),i(` · user create/delete, role change, SSO config edit`)]),a(`li`,null,[i(`· `),a(`b`,{class:`text-chalk`},`AI`),i(` · prompt sent, model used, response logged (опц.)`)])])]),a(`div`,{class:`card`},[a(`span`,{class:`eyebrow !text-violet-light`},`Формат и хранение`),a(`pre`,{class:`!text-[10px] !p-3 mt-3`},[a(`code`,null,`{
+  "event_id": "uuid",
+  "timestamp": "ISO-8601",
+  "actor": { "user_id", "email", "ip" },
+  "action": "notebook.cell.sql_execute",
+  "resource": { "type", "id" },
+  "metadata": { ... },
+  "request_id": "trace-id"
+}`)]),a(`p`,{class:`text-xs dim mt-3`},[i(` Хранение · отдельная Postgres-таблица + опционально JSONL файлы.`),a(`br`),i(` Экспорт · `),a(`b`,{class:`text-chalk`},`JSONL`),i(` stream → SIEM (Splunk, Datadog, Elastic). `)])])],-1)]]),_:1},16))}};export{d as default};
