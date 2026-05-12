@@ -1,0 +1,199 @@
+---
+import { useTranslations, type Lang } from '../i18n/translations';
+interface Props { lang?: Lang }
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+const c = t.calculator;
+const isRu = lang === 'ru';
+---
+
+<section id="calculator" class="container-wide py-24 lg:py-32">
+  <div class="mx-auto max-w-2xl text-center">
+    <p class="mb-3 text-xs uppercase tracking-wider text-teal-light">{c.eyebrow}</p>
+    <h2 class="text-balance text-3xl font-semibold tracking-tight text-chalk sm:text-4xl">{c.title}</h2>
+    <p class="mt-3 text-base text-chalk-dim">{c.subtitle}</p>
+  </div>
+
+  <div class="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-[1.1fr_1fr]">
+    <div class="card p-6 lg:p-8">
+      <label class="block">
+        <span class="text-sm font-medium text-chalk">{c.usersLabel}</span>
+        <div class="mt-3 flex items-center gap-3">
+          <input
+            id="calc-users"
+            type="number"
+            min="1"
+            max="500"
+            value="10"
+            class="w-32 rounded-md border border-chalk/15 bg-ink-800/40 px-3 py-2 text-base font-mono text-chalk focus:border-teal/50 focus:outline-none"
+          />
+          <input
+            id="calc-users-range"
+            type="range"
+            min="1"
+            max="100"
+            value="10"
+            class="flex-1 accent-teal"
+          />
+        </div>
+      </label>
+
+      <fieldset class="mt-7 border-t border-chalk/10 pt-6">
+        <legend class="-mt-9 inline-block bg-ink-900 px-2 text-xs uppercase tracking-wider text-teal-light">{c.proLabel}</legend>
+        <div class="grid gap-2 sm:grid-cols-2">
+          <label class="flex items-center gap-2 text-sm text-chalk-dim hover:text-chalk">
+            <input type="checkbox" data-feature="pro" data-key="rbac" class="accent-teal" />
+            {c.features.rbac}
+          </label>
+          <label class="flex items-center gap-2 text-sm text-chalk-dim hover:text-chalk">
+            <input type="checkbox" data-feature="pro" data-key="audit" class="accent-teal" />
+            {c.features.audit}
+          </label>
+          <label class="flex items-center gap-2 text-sm text-chalk-dim hover:text-chalk">
+            <input type="checkbox" data-feature="pro" data-key="versioning" class="accent-teal" />
+            {c.features.versioning}
+          </label>
+          <label class="flex items-center gap-2 text-sm text-chalk-dim hover:text-chalk">
+            <input type="checkbox" data-feature="pro" data-key="priority" class="accent-teal" />
+            {c.features.priority}
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="mt-7 border-t border-chalk/10 pt-6">
+        <legend class="-mt-9 inline-block bg-ink-900 px-2 text-xs uppercase tracking-wider text-violet-light">{c.enterpriseLabel}</legend>
+        <div class="grid gap-2 sm:grid-cols-2">
+          <label class="flex items-center gap-2 text-sm text-chalk-dim hover:text-chalk">
+            <input type="checkbox" data-feature="enterprise" data-key="sso" class="accent-violet" />
+            {c.features.sso}
+          </label>
+          <label class="flex items-center gap-2 text-sm text-chalk-dim hover:text-chalk">
+            <input type="checkbox" data-feature="enterprise" data-key="fullAudit" class="accent-violet" />
+            {c.features.fullAudit}
+          </label>
+          <label class="flex items-center gap-2 text-sm text-chalk-dim hover:text-chalk">
+            <input type="checkbox" data-feature="enterprise" data-key="customConnectors" class="accent-violet" />
+            {c.features.customConnectors}
+          </label>
+          <label class="flex items-center gap-2 text-sm text-chalk-dim hover:text-chalk">
+            <input type="checkbox" data-feature="enterprise" data-key="csm" class="accent-violet" />
+            {c.features.csm}
+          </label>
+          <label class="flex items-center gap-2 text-sm text-chalk-dim hover:text-chalk">
+            <input type="checkbox" data-feature="enterprise" data-key="sla" class="accent-violet" />
+            {c.features.sla}
+          </label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="card p-6 lg:p-8" data-result>
+      <p class="text-xs uppercase tracking-wider text-chalk-mute">{c.result.recommendedLabel}</p>
+      <h3 class="mt-2 text-2xl font-semibold text-chalk" data-result-tier>{c.tiers.pro}</h3>
+
+      <div class="mt-5 flex items-baseline gap-2">
+        <span class="text-4xl font-semibold text-chalk" data-result-price>$490</span>
+        <span class="text-sm text-chalk-mute" data-result-period>{c.result.perMonth}</span>
+      </div>
+      <p class="mt-1 text-sm text-chalk-dim" data-result-rub>≈ 44 100 ₽ {c.rubLabel}</p>
+
+      <p class="mt-4 text-sm text-chalk-dim" data-result-note>{c.result.proNote}</p>
+
+      <p class="mt-2 hidden text-xs text-yellow-300/90" data-result-mincopy>{c.result.minSeats}</p>
+
+      <a
+        href="#contact"
+        data-result-cta
+        class="mt-6 inline-flex w-full items-center justify-center rounded-md bg-chalk px-4 py-2.5 text-sm font-medium text-ink-950 transition hover:bg-white"
+      >
+        {c.ctaPro}
+      </a>
+    </div>
+  </div>
+</section>
+
+<script is:inline define:vars={{ isRu, t: c }}>
+  (function () {
+    const usersInput = document.getElementById('calc-users');
+    const rangeInput = document.getElementById('calc-users-range');
+    const tierEl = document.querySelector('[data-result-tier]');
+    const priceEl = document.querySelector('[data-result-price]');
+    const periodEl = document.querySelector('[data-result-period]');
+    const rubEl = document.querySelector('[data-result-rub]');
+    const noteEl = document.querySelector('[data-result-note]');
+    const minEl = document.querySelector('[data-result-mincopy]');
+    const ctaEl = document.querySelector('[data-result-cta]');
+    if (!usersInput || !rangeInput || !tierEl) return;
+
+    const proBoxes = Array.from(document.querySelectorAll('[data-feature="pro"]'));
+    const entBoxes = Array.from(document.querySelectorAll('[data-feature="enterprise"]'));
+    const fmt = new Intl.NumberFormat(isRu ? 'ru-RU' : 'en-US');
+    const RUB_RATE = 90;
+    const SEAT_PRICE = 49;
+    const MIN_SEATS = 5;
+
+    function pickTier() {
+      const users = Math.max(1, parseInt(usersInput.value || '1', 10));
+      const proSelected = proBoxes.some(b => b.checked);
+      const entSelected = entBoxes.some(b => b.checked);
+
+      if (entSelected) {
+        return { tier: 'enterprise', users };
+      }
+      if (users > 5 || proSelected) {
+        return { tier: 'pro', users };
+      }
+      return { tier: 'community', users };
+    }
+
+    function render() {
+      const { tier, users } = pickTier();
+      const billedSeats = Math.max(users, MIN_SEATS);
+      const isMin = tier === 'pro' && users < MIN_SEATS;
+
+      if (tier === 'community') {
+        tierEl.textContent = t.tiers.community;
+        priceEl.textContent = '$0';
+        periodEl.textContent = isRu ? '/ навсегда' : '/ forever';
+        rubEl.textContent = '0 ₽';
+        noteEl.textContent = t.result.communityNote;
+        minEl.classList.add('hidden');
+        ctaEl.textContent = t.ctaCommunity;
+        ctaEl.setAttribute('href', 'https://github.com/nborodulin471/vard');
+      } else if (tier === 'pro') {
+        const usd = billedSeats * SEAT_PRICE;
+        const rub = usd * RUB_RATE;
+        tierEl.textContent = t.tiers.pro;
+        priceEl.textContent = '$' + fmt.format(usd);
+        periodEl.textContent = t.result.perMonth;
+        rubEl.textContent = '≈ ' + fmt.format(rub) + ' ₽ ' + t.rubLabel;
+        noteEl.textContent = t.result.proNote;
+        if (isMin) minEl.classList.remove('hidden');
+        else minEl.classList.add('hidden');
+        ctaEl.textContent = t.ctaPro;
+        ctaEl.setAttribute('href', '#contact');
+      } else {
+        tierEl.textContent = t.tiers.enterprise;
+        priceEl.textContent = isRu ? 'Договор' : 'Custom';
+        periodEl.textContent = isRu ? '· контракт' : '· quote';
+        rubEl.textContent = t.result.contact;
+        noteEl.textContent = t.result.enterpriseNote;
+        minEl.classList.add('hidden');
+        ctaEl.textContent = t.ctaEnterprise;
+        ctaEl.setAttribute('href', '#contact');
+      }
+    }
+
+    function syncRange(from) {
+      const val = parseInt(from.value || '1', 10);
+      const clamped = Math.min(100, Math.max(1, val));
+      if (from === usersInput) rangeInput.value = String(clamped);
+      else usersInput.value = String(clamped);
+    }
+
+    usersInput.addEventListener('input', () => { syncRange(usersInput); render(); });
+    rangeInput.addEventListener('input', () => { syncRange(rangeInput); render(); });
+    [...proBoxes, ...entBoxes].forEach(b => b.addEventListener('change', render));
+    render();
+  })();
+</script>

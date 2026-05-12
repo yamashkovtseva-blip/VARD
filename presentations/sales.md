@@ -409,7 +409,7 @@ layout: default
 <div class="card !border-teal/40 !bg-teal/[0.04] relative">
   <h3 class="!text-chalk !text-base !mb-2">Self-hosted Pro</h3>
   <div class="text-3xl text-chalk font-semibold">$49</div>
-  <div class="text-xs mute">per user / mo · from 10 seats</div>
+  <div class="text-xs mute">per user / mo · from 5 seats</div>
   <p class="text-xs dim mt-3 mb-4">RBAC · audit log · versioning · priority email.</p>
   <div class="text-xs teal">Best for · regulated, growing teams</div>
 </div>

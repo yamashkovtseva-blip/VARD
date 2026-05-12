@@ -389,7 +389,7 @@ layout: default
 <div class="card !border-teal/40 !bg-teal/[0.04] relative">
   <h3 class="!text-chalk !text-base !mb-2">Self-hosted Pro</h3>
   <div class="text-3xl text-chalk font-semibold">$49</div>
-  <div class="text-xs mute">за пользователя / мес · от 10 мест</div>
+  <div class="text-xs mute">за пользователя / мес · от 5 мест</div>
   <p class="text-xs dim mt-3 mb-4">RBAC · audit log · версионирование · приоритет email.</p>
   <div class="text-xs teal">Для · регулируемых, растущих команд</div>
 </div>
