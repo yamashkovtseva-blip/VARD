@@ -139,11 +139,12 @@ const labels = isRu
     <div class="hidden rounded-md border border-red-400/30 bg-red-400/[0.05] p-4 text-sm text-red-300" data-lead-error>
       <p class="font-medium">{labels.errorTitle}</p>
       <p class="mt-1 text-xs text-red-300/80">{labels.errorBody}</p>
+      <pre class="mt-2 hidden whitespace-pre-wrap break-words rounded bg-ink-950/60 p-2 text-[11px] text-red-200/90" data-lead-error-detail></pre>
     </div>
   </div>
 </div>
 
-<script is:inline define:vars={{ labels, lang }}>
+<script is:inline define:vars={{ labels, lang, supabaseUrl: import.meta.env.PUBLIC_SUPABASE_URL, supabaseKey: import.meta.env.PUBLIC_SUPABASE_ANON_KEY }}>
   (function () {
     const modal = document.getElementById('lead-modal');
     if (!modal) return;
@@ -221,6 +222,8 @@ const labels = isRu
       submitBtn.disabled = true;
       submitLabel.textContent = labels.sending;
       errorBox.classList.add('hidden');
+      const detailReset = modal.querySelector('[data-lead-error-detail]');
+      if (detailReset) { detailReset.textContent = ''; detailReset.classList.add('hidden'); }
 
       const fd = new FormData(form);
       const payload = {
@@ -236,14 +239,44 @@ const labels = isRu
       };
 
       try {
-        const mod = await import('../lib/supabase.ts');
-        if (!mod.supabaseConfigured || !mod.supabase) throw new Error('Supabase is not configured');
-        const { error } = await mod.supabase.from('leads').insert(payload);
-        if (error) throw error;
+        if (!supabaseUrl || !supabaseKey) throw new Error('Supabase is not configured (PUBLIC_SUPABASE_URL / PUBLIC_SUPABASE_ANON_KEY missing at build time)');
+        const res = await fetch(`${supabaseUrl}/rest/v1/leads`, {
+          method: 'POST',
+          headers: {
+            'apikey': supabaseKey,
+            'Authorization': `Bearer ${supabaseKey}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal',
+          },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) {
+          let body = null;
+          try { body = await res.json(); } catch {}
+          const e = new Error(body?.message || `HTTP ${res.status}`);
+          if (body) { e.code = body.code; e.details = body.details; e.hint = body.hint; }
+          e.status = res.status;
+          throw e;
+        }
         formBody.classList.add('hidden');
         successBox.classList.remove('hidden');
       } catch (err) {
         console.error('Lead submit failed', err);
+        const detailEl = modal.querySelector('[data-lead-error-detail]');
+        if (detailEl) {
+          const parts = [];
+          if (err && typeof err === 'object') {
+            if (err.message) parts.push(`message: ${err.message}`);
+            if (err.code)    parts.push(`code: ${err.code}`);
+            if (err.details) parts.push(`details: ${err.details}`);
+            if (err.hint)    parts.push(`hint: ${err.hint}`);
+            if (err.status)  parts.push(`status: ${err.status}`);
+          } else {
+            parts.push(String(err));
+          }
+          detailEl.textContent = parts.join('\n') || String(err);
+          detailEl.classList.remove('hidden');
+        }
         errorBox.classList.remove('hidden');
         submitBtn.disabled = false;
         submitLabel.textContent = labels.submit;
