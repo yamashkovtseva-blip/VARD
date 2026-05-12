@@ -122,7 +122,7 @@ the cloud option is illegal. The local option is medieval.
 **Заголовок:** One command. Your laptop or your Kubernetes cluster.
 
 ```
-$ git clone github.com/nborodulin471/vard
+$ git clone github.com/smarianna24/VARD
 $ cd vard && docker compose up
 $ open http://localhost:5173
 
@@ -324,7 +324,7 @@ Background:                  Why this matters here.       Why this matters here.
 ```
 ✓ MVP working: SQL + Python + R, real-time collab, local AI
 ✓ Live demo running at vard.ru.tuna.am
-✓ Open-source codebase: github.com/nborodulin471/vard
+✓ Open-source codebase: github.com/smarianna24/VARD
 ✓ 30+ user interviews completed (key insight: privacy is #1 pain)
 ○ Public launch: planned for [DATE]
 ○ First paying customer: planned for Q2
@@ -375,7 +375,7 @@ What we need from you.
   · Help spreading the word — star, share, deploy
 
 Try it: vard.ru.tuna.am
-Star it: github.com/nborodulin471/vard
+Star it: github.com/smarianna24/VARD
 Talk to us: hello@vard.io
 ```
 

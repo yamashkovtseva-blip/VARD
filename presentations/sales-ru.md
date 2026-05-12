@@ -254,7 +254,7 @@ layout: default
   <div class="eyebrow !text-teal-light">01 · Pull</div>
   <h3 class="!text-chalk !text-base !mb-3">Клонируйте репо</h3>
   <pre class="!p-3 !text-[11px]"><code>git clone github.com/
-  nborodulin471/vard
+  smarianna24/VARD
 cd vard</code></pre>
 </div>
 
@@ -559,7 +559,7 @@ class: text-center
 </div>
 
 <div class="mt-12 text-base">
-  <span class="dim">Звезду на GitHub:</span> <span class="text-chalk font-mono">github.com/nborodulin471/vard</span>
+  <span class="dim">Звезду на GitHub:</span> <span class="text-chalk font-mono">github.com/smarianna24/VARD</span>
 </div>
 
 ---
@@ -571,4 +571,4 @@ class: text-center
 
 # Вопросы?
 
-<p class="dim mt-4">hello@vard.io · vard.ru.tuna.am · github.com/nborodulin471/vard</p>
+<p class="dim mt-4">hello@vard.io · vard.ru.tuna.am · github.com/smarianna24/VARD</p>

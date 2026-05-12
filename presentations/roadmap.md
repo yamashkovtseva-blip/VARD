@@ -624,7 +624,7 @@ class: text-center
   <span class="eyebrow">Контакт по техническим вопросам</span>
   <div class="text-sm dim mt-2 space-y-1.5">
     <div>Tech lead · <span class="text-chalk">Николай Бородулин</span></div>
-    <div>Repo · <span class="text-chalk font-mono">github.com/nborodulin471/vard</span></div>
+    <div>Repo · <span class="text-chalk font-mono">github.com/smarianna24/VARD</span></div>
     <div>Discord · <span class="text-chalk font-mono">discord.gg/vard</span></div>
   </div>
 </div>

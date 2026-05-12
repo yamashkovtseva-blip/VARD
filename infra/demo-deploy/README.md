@@ -31,7 +31,7 @@ Switching to the artifacts here gives you:
 ## Usage
 
 These files belong **in the product repo**
-(`github.com/nborodulin471/vard`), not in this marketing repo. Either
+(`github.com/smarianna24/VARD`), not in this marketing repo. Either
 copy them in, or reference this directory from there. From the product
 repo root:
 

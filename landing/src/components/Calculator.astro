@@ -101,13 +101,13 @@ const isRu = lang === 'ru';
 
       <p class="mt-2 hidden text-xs text-yellow-300/90" data-result-mincopy>{c.result.minSeats}</p>
 
-      <a
-        href="#contact"
+      <button
+        type="button"
         data-result-cta
         class="mt-6 inline-flex w-full items-center justify-center rounded-md bg-chalk px-4 py-2.5 text-sm font-medium text-ink-950 transition hover:bg-white"
       >
         {c.ctaPro}
-      </a>
+      </button>
     </div>
   </div>
 </section>
@@ -151,6 +151,13 @@ const isRu = lang === 'ru';
       const billedSeats = Math.max(users, MIN_SEATS);
       const isMin = tier === 'pro' && users < MIN_SEATS;
 
+      const selectedFeatures = [
+        ...proBoxes.filter(b => b.checked).map(b => b.dataset.key),
+        ...entBoxes.filter(b => b.checked).map(b => b.dataset.key),
+      ];
+      ctaEl.dataset.leadFeatures = JSON.stringify(selectedFeatures);
+      ctaEl.dataset.leadUsers = String(users);
+
       if (tier === 'community') {
         tierEl.textContent = t.tiers.community;
         priceEl.textContent = '$0';
@@ -159,7 +166,7 @@ const isRu = lang === 'ru';
         noteEl.textContent = t.result.communityNote;
         minEl.classList.add('hidden');
         ctaEl.textContent = t.ctaCommunity;
-        ctaEl.setAttribute('href', 'https://github.com/nborodulin471/vard');
+        ctaEl.dataset.leadForm = 'community';
       } else if (tier === 'pro') {
         const usd = billedSeats * SEAT_PRICE;
         const rub = usd * RUB_RATE;
@@ -171,7 +178,7 @@ const isRu = lang === 'ru';
         if (isMin) minEl.classList.remove('hidden');
         else minEl.classList.add('hidden');
         ctaEl.textContent = t.ctaPro;
-        ctaEl.setAttribute('href', '#contact');
+        ctaEl.dataset.leadForm = 'trial';
       } else {
         tierEl.textContent = t.tiers.enterprise;
         priceEl.textContent = isRu ? 'Договор' : 'Custom';
@@ -180,7 +187,7 @@ const isRu = lang === 'ru';
         noteEl.textContent = t.result.enterpriseNote;
         minEl.classList.add('hidden');
         ctaEl.textContent = t.ctaEnterprise;
-        ctaEl.setAttribute('href', '#contact');
+        ctaEl.dataset.leadForm = 'sales';
       }
     }
 
@@ -194,6 +201,21 @@ const isRu = lang === 'ru';
     usersInput.addEventListener('input', () => { syncRange(usersInput); render(); });
     rangeInput.addEventListener('input', () => { syncRange(rangeInput); render(); });
     [...proBoxes, ...entBoxes].forEach(b => b.addEventListener('change', render));
+
+    ctaEl.addEventListener('click', (e) => {
+      e.preventDefault();
+      const source = ctaEl.dataset.leadForm;
+      if (source === 'community') {
+        window.open('https://github.com/smarianna24/VARD', '_blank', 'noopener');
+        return;
+      }
+      const features = (() => { try { return JSON.parse(ctaEl.dataset.leadFeatures || '[]'); } catch { return []; } })();
+      const users = parseInt(ctaEl.dataset.leadUsers || '0', 10);
+      if (typeof window.openLeadForm === 'function') {
+        window.openLeadForm(source || 'trial', features, users);
+      }
+    });
+
     render();
   })();
 </script>

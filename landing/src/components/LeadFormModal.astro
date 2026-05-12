@@ -1,0 +1,256 @@
+---
+import { useTranslations, type Lang } from '../i18n/translations';
+interface Props { lang?: Lang }
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+const isRu = lang === 'ru';
+
+const labels = isRu
+  ? {
+      trial: { title: 'Триал Self-hosted Pro', sub: 'Заполните форму — пришлём триал-ключ на 14 дней.' },
+      sales: { title: 'Связаться с продажами', sub: 'Расскажите про команду — свяжемся в течение рабочего дня.' },
+      contact: { title: 'Напишите команде', sub: 'Пилоты, security-ревью, кастомные коннекторы.' },
+      calculator: { title: 'Подбор тарифа', sub: 'Скажем какой тариф подходит и пришлём триал-ключ.' },
+      email: 'Рабочий email', name: 'Имя', company: 'Компания', teamSize: 'Размер команды', message: 'Комментарий',
+      required: 'обязательно',
+      submit: 'Отправить', sending: 'Отправляем…', success: 'Получили! Напишем в течение рабочего дня.', errorTitle: 'Что-то пошло не так.', errorBody: 'Попробуйте ещё раз или напишите на hello@vard.io',
+      close: 'Закрыть',
+      privacy: 'Отправляя форму, вы соглашаетесь получить ответ от команды Vard.',
+    }
+  : {
+      trial: { title: 'Self-hosted Pro trial', sub: 'Fill in the form — we’ll send a 14-day trial key.' },
+      sales: { title: 'Talk to sales', sub: 'Tell us about your team — we’ll get back within a business day.' },
+      contact: { title: 'Talk to the team', sub: 'Pilots, security reviews, custom connectors.' },
+      calculator: { title: 'Get a plan recommendation', sub: 'We’ll tell you which tier fits and send a trial key.' },
+      email: 'Work email', name: 'Name', company: 'Company', teamSize: 'Team size', message: 'Message',
+      required: 'required',
+      submit: 'Submit', sending: 'Submitting…', success: 'Got it. We’ll reply within a business day.', errorTitle: 'Something went wrong.', errorBody: 'Please try again or email hello@vard.io',
+      close: 'Close',
+      privacy: 'By submitting, you agree to receive a reply from the Vard team.',
+    };
+---
+
+<div
+  id="lead-modal"
+  class="fixed inset-0 z-50 hidden items-center justify-center p-4"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="lead-modal-title"
+>
+  <div class="absolute inset-0 bg-ink-950/80 backdrop-blur-sm" data-lead-close></div>
+
+  <div class="relative z-10 w-full max-w-md rounded-xl border border-chalk/15 bg-ink-900 p-6 shadow-2xl sm:p-8">
+    <button
+      type="button"
+      class="absolute right-4 top-4 rounded-md p-1 text-chalk-mute transition hover:bg-ink-800 hover:text-chalk"
+      data-lead-close
+      aria-label={labels.close}
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+    </button>
+
+    <div data-lead-form-body>
+      <p class="text-xs uppercase tracking-wider text-teal-light" data-lead-eyebrow>{labels.contact.title}</p>
+      <h3 id="lead-modal-title" class="mt-1 text-2xl font-semibold tracking-tight text-chalk" data-lead-title>{labels.contact.title}</h3>
+      <p class="mt-2 text-sm text-chalk-dim" data-lead-sub>{labels.contact.sub}</p>
+
+      <form class="mt-6 space-y-4" data-lead-form>
+        <label class="block">
+          <span class="text-xs font-medium text-chalk-dim">{labels.email} <span class="text-red-400">*</span></span>
+          <input
+            type="email"
+            name="email"
+            required
+            autocomplete="email"
+            class="mt-1 w-full rounded-md border border-chalk/15 bg-ink-800/60 px-3 py-2 text-sm text-chalk placeholder:text-chalk-mute focus:border-teal/50 focus:outline-none"
+            placeholder="you@company.com"
+          />
+        </label>
+
+        <div class="grid gap-3 sm:grid-cols-2">
+          <label class="block">
+            <span class="text-xs font-medium text-chalk-dim">{labels.name}</span>
+            <input
+              type="text"
+              name="name"
+              autocomplete="name"
+              class="mt-1 w-full rounded-md border border-chalk/15 bg-ink-800/60 px-3 py-2 text-sm text-chalk placeholder:text-chalk-mute focus:border-teal/50 focus:outline-none"
+            />
+          </label>
+          <label class="block">
+            <span class="text-xs font-medium text-chalk-dim">{labels.company}</span>
+            <input
+              type="text"
+              name="company"
+              autocomplete="organization"
+              class="mt-1 w-full rounded-md border border-chalk/15 bg-ink-800/60 px-3 py-2 text-sm text-chalk placeholder:text-chalk-mute focus:border-teal/50 focus:outline-none"
+            />
+          </label>
+        </div>
+
+        <label class="block" data-team-size-wrap>
+          <span class="text-xs font-medium text-chalk-dim">{labels.teamSize}</span>
+          <input
+            type="number"
+            name="team_size"
+            min="1"
+            class="mt-1 w-32 rounded-md border border-chalk/15 bg-ink-800/60 px-3 py-2 text-sm text-chalk focus:border-teal/50 focus:outline-none"
+          />
+        </label>
+
+        <label class="block">
+          <span class="text-xs font-medium text-chalk-dim">{labels.message}</span>
+          <textarea
+            name="message"
+            rows="3"
+            class="mt-1 w-full resize-y rounded-md border border-chalk/15 bg-ink-800/60 px-3 py-2 text-sm text-chalk placeholder:text-chalk-mute focus:border-teal/50 focus:outline-none"
+          ></textarea>
+        </label>
+
+        <input type="hidden" name="source" value="contact" data-lead-source />
+        <input type="hidden" name="lang" value={lang} />
+        <input type="hidden" name="features" data-lead-features value="[]" />
+
+        <button
+          type="submit"
+          class="w-full rounded-md bg-chalk px-4 py-2.5 text-sm font-medium text-ink-950 transition hover:bg-white disabled:opacity-60"
+          data-lead-submit
+        >
+          <span data-lead-submit-label>{labels.submit}</span>
+        </button>
+
+        <p class="text-[11px] leading-relaxed text-chalk-mute">{labels.privacy}</p>
+      </form>
+    </div>
+
+    <div class="hidden text-center" data-lead-success>
+      <div class="mx-auto mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-teal/15 text-teal-light">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+      </div>
+      <h3 class="text-xl font-semibold text-chalk">✓</h3>
+      <p class="mt-2 text-sm text-chalk-dim">{labels.success}</p>
+      <button
+        type="button"
+        class="mt-6 rounded-md border border-chalk/15 bg-ink-800/40 px-4 py-2 text-sm text-chalk transition hover:border-chalk/30"
+        data-lead-close
+      >{labels.close}</button>
+    </div>
+
+    <div class="hidden rounded-md border border-red-400/30 bg-red-400/[0.05] p-4 text-sm text-red-300" data-lead-error>
+      <p class="font-medium">{labels.errorTitle}</p>
+      <p class="mt-1 text-xs text-red-300/80">{labels.errorBody}</p>
+    </div>
+  </div>
+</div>
+
+<script is:inline define:vars={{ labels, lang }}>
+  (function () {
+    const modal = document.getElementById('lead-modal');
+    if (!modal) return;
+    const form = modal.querySelector('[data-lead-form]');
+    const formBody = modal.querySelector('[data-lead-form-body]');
+    const successBox = modal.querySelector('[data-lead-success]');
+    const errorBox = modal.querySelector('[data-lead-error]');
+    const titleEl = modal.querySelector('[data-lead-title]');
+    const subEl = modal.querySelector('[data-lead-sub]');
+    const eyebrowEl = modal.querySelector('[data-lead-eyebrow]');
+    const sourceEl = modal.querySelector('[data-lead-source]');
+    const featuresEl = modal.querySelector('[data-lead-features]');
+    const submitBtn = modal.querySelector('[data-lead-submit]');
+    const submitLabel = modal.querySelector('[data-lead-submit-label]');
+    const teamSizeWrap = modal.querySelector('[data-team-size-wrap]');
+
+    function open(source, features, prefillUsers) {
+      const cfg = labels[source] || labels.contact;
+      sourceEl.value = source;
+      featuresEl.value = JSON.stringify(features || []);
+      titleEl.textContent = cfg.title;
+      eyebrowEl.textContent = cfg.title;
+      subEl.textContent = cfg.sub;
+      formBody.classList.remove('hidden');
+      successBox.classList.add('hidden');
+      errorBox.classList.add('hidden');
+      submitBtn.disabled = false;
+      submitLabel.textContent = labels.submit;
+      if (source === 'trial' || source === 'sales' || source === 'calculator') {
+        teamSizeWrap.classList.remove('hidden');
+      } else {
+        teamSizeWrap.classList.add('hidden');
+      }
+      const teamInput = modal.querySelector('input[name="team_size"]');
+      if (teamInput && prefillUsers && Number.isFinite(prefillUsers)) {
+        teamInput.value = String(prefillUsers);
+      }
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      const first = modal.querySelector('input[name="email"]');
+      if (first) setTimeout(() => first.focus(), 50);
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+      form.reset();
+    }
+
+    // Open from any element with data-lead-form="<source>" and optional data-lead-features
+    document.querySelectorAll('[data-lead-form]:not([data-lead-form="trigger-only"])').forEach((el) => {
+      // ignore the form itself
+      if (el.tagName === 'FORM') return;
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        const source = el.dataset.leadForm || 'contact';
+        let features = [];
+        try { features = JSON.parse(el.dataset.leadFeatures || '[]'); } catch {}
+        open(source, features);
+      });
+    });
+
+    // Close handlers
+    modal.querySelectorAll('[data-lead-close]').forEach((el) => {
+      el.addEventListener('click', close);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) close();
+    });
+
+    // Submit
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitLabel.textContent = labels.sending;
+      errorBox.classList.add('hidden');
+
+      const fd = new FormData(form);
+      const payload = {
+        email: String(fd.get('email') || '').trim(),
+        name: String(fd.get('name') || '').trim() || null,
+        company: String(fd.get('company') || '').trim() || null,
+        team_size: fd.get('team_size') ? parseInt(String(fd.get('team_size')), 10) : null,
+        source: fd.get('source'),
+        features: (() => { try { return JSON.parse(String(fd.get('features') || '[]')); } catch { return []; } })(),
+        message: String(fd.get('message') || '').trim() || null,
+        lang: fd.get('lang'),
+        user_agent: navigator.userAgent.slice(0, 200),
+      };
+
+      try {
+        const mod = await import('../lib/supabase.ts');
+        if (!mod.supabaseConfigured || !mod.supabase) throw new Error('Supabase is not configured');
+        const { error } = await mod.supabase.from('leads').insert(payload);
+        if (error) throw error;
+        formBody.classList.add('hidden');
+        successBox.classList.remove('hidden');
+      } catch (err) {
+        console.error('Lead submit failed', err);
+        errorBox.classList.remove('hidden');
+        submitBtn.disabled = false;
+        submitLabel.textContent = labels.submit;
+      }
+    });
+
+    // Expose for programmatic triggers (e.g. from Calculator)
+    window.openLeadForm = open;
+  })();
+</script>

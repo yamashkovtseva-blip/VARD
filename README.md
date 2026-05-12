@@ -2,7 +2,7 @@
 
 Self-hosted data notebook with local AI assistant. Source-available under BSL 1.1; converts to Apache 2.0 on 2030-01-01. Alternative to Hex and Deepnote for regulated industries.
 
-- Product repo: https://github.com/nborodulin471/vard
+- Product repo: https://github.com/smarianna24/VARD
 - Live demo: https://vard.ru.tuna.am/login (creds: `demo@vard.local` / `DemoPass123!`)
 
 This repository contains the **marketing assets**:

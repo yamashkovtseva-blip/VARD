@@ -1,0 +1,333 @@
+---
+import Layout from '../layouts/Layout.astro';
+const lang = 'en' as const;
+---
+
+<Layout lang={lang}>
+  <main class="min-h-screen bg-ink-950 py-12">
+    <div class="mx-auto max-w-6xl px-6">
+      <header class="mb-10 flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-semibold text-chalk">Vard · Leads</h1>
+          <p class="text-sm text-chalk-mute" data-user-email>—</p>
+        </div>
+        <button
+          id="logout-btn"
+          class="hidden rounded-md border border-chalk/15 bg-ink-800/40 px-3 py-1.5 text-xs text-chalk-dim transition hover:text-chalk"
+        >Sign out</button>
+      </header>
+
+      <div id="login-box" class="mx-auto mt-20 max-w-md rounded-xl border border-chalk/15 bg-ink-900 p-8">
+        <h2 class="text-lg font-semibold text-chalk">Admin sign-in</h2>
+        <p class="mt-1 text-sm text-chalk-dim">Enter your email — we’ll send a magic link.</p>
+        <form id="login-form" class="mt-5 space-y-3">
+          <input
+            type="email"
+            id="login-email"
+            required
+            placeholder="ya.mashkovtseva@gmail.com"
+            class="w-full rounded-md border border-chalk/15 bg-ink-800/60 px-3 py-2 text-sm text-chalk placeholder:text-chalk-mute focus:border-teal/50 focus:outline-none"
+          />
+          <button
+            type="submit"
+            id="login-submit"
+            class="w-full rounded-md bg-chalk px-4 py-2.5 text-sm font-medium text-ink-950 transition hover:bg-white disabled:opacity-60"
+          >Send magic link</button>
+        </form>
+        <p id="login-msg" class="mt-3 hidden text-xs text-teal-light"></p>
+        <p id="login-err" class="mt-3 hidden text-xs text-red-300"></p>
+        <p id="config-err" class="mt-3 hidden rounded-md border border-red-400/30 bg-red-400/[0.05] p-3 text-xs text-red-300"></p>
+      </div>
+
+      <div id="leads-app" class="hidden">
+        <div class="mb-5 flex flex-wrap items-center gap-3">
+          <div class="flex items-center gap-1 rounded-md border border-chalk/15 bg-ink-900 p-1 text-xs">
+            <button data-filter="all" class="rounded px-3 py-1 text-chalk">All</button>
+            <button data-filter="new" class="rounded px-3 py-1 text-chalk-dim hover:text-chalk">New</button>
+            <button data-filter="qualified" class="rounded px-3 py-1 text-chalk-dim hover:text-chalk">Qualified</button>
+            <button data-filter="poc" class="rounded px-3 py-1 text-chalk-dim hover:text-chalk">POC</button>
+            <button data-filter="won" class="rounded px-3 py-1 text-chalk-dim hover:text-chalk">Won</button>
+            <button data-filter="lost" class="rounded px-3 py-1 text-chalk-dim hover:text-chalk">Lost</button>
+          </div>
+          <span class="text-xs text-chalk-mute" id="leads-count">0 leads</span>
+          <button id="refresh-btn" class="ml-auto rounded-md border border-chalk/15 bg-ink-800/40 px-3 py-1.5 text-xs text-chalk-dim transition hover:text-chalk">Refresh</button>
+        </div>
+
+        <div class="overflow-hidden rounded-xl border border-chalk/10 bg-ink-900">
+          <table class="w-full text-sm">
+            <thead class="border-b border-chalk/10 bg-ink-800/40 text-xs uppercase tracking-wider text-chalk-mute">
+              <tr>
+                <th class="px-4 py-3 text-left">Date</th>
+                <th class="px-4 py-3 text-left">Email</th>
+                <th class="px-4 py-3 text-left">Company</th>
+                <th class="px-4 py-3 text-left">Source</th>
+                <th class="px-4 py-3 text-left">Team</th>
+                <th class="px-4 py-3 text-left">Status</th>
+              </tr>
+            </thead>
+            <tbody id="leads-tbody"></tbody>
+          </table>
+          <p id="empty-state" class="hidden p-10 text-center text-sm text-chalk-mute">No leads yet.</p>
+        </div>
+      </div>
+
+      <!-- Lead detail drawer -->
+      <div id="lead-detail" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-ink-950/80 backdrop-blur-sm" data-detail-close></div>
+        <aside class="absolute right-0 top-0 h-full w-full max-w-lg overflow-y-auto border-l border-chalk/15 bg-ink-900 p-6 shadow-2xl">
+          <div class="flex items-start justify-between">
+            <h2 class="text-lg font-semibold text-chalk" id="detail-email">—</h2>
+            <button class="rounded-md p-1 text-chalk-mute hover:bg-ink-800 hover:text-chalk" data-detail-close>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+            </button>
+          </div>
+          <div id="detail-meta" class="mt-4 grid grid-cols-2 gap-3 text-xs text-chalk-dim"></div>
+
+          <label class="mt-6 block">
+            <span class="text-xs font-medium text-chalk-dim">Status</span>
+            <select id="detail-status" class="mt-1 w-full rounded-md border border-chalk/15 bg-ink-800/60 px-3 py-2 text-sm text-chalk focus:border-teal/50 focus:outline-none">
+              <option value="new">New</option>
+              <option value="qualified">Qualified</option>
+              <option value="poc">POC</option>
+              <option value="won">Won</option>
+              <option value="lost">Lost</option>
+            </select>
+          </label>
+
+          <label class="mt-4 block">
+            <span class="text-xs font-medium text-chalk-dim">Message</span>
+            <p id="detail-message" class="mt-1 whitespace-pre-wrap rounded-md border border-chalk/15 bg-ink-800/40 px-3 py-2 text-sm text-chalk-dim">—</p>
+          </label>
+
+          <label class="mt-4 block">
+            <span class="text-xs font-medium text-chalk-dim">Notes (private)</span>
+            <textarea id="detail-notes" rows="5" class="mt-1 w-full resize-y rounded-md border border-chalk/15 bg-ink-800/60 px-3 py-2 text-sm text-chalk placeholder:text-chalk-mute focus:border-teal/50 focus:outline-none" placeholder="Follow-up actions, call notes…"></textarea>
+          </label>
+
+          <div class="mt-5 flex items-center gap-2">
+            <button id="detail-save" class="rounded-md bg-chalk px-4 py-2 text-sm font-medium text-ink-950 transition hover:bg-white disabled:opacity-60">Save</button>
+            <a id="detail-mailto" class="rounded-md border border-chalk/15 bg-ink-800/40 px-4 py-2 text-sm text-chalk transition hover:border-chalk/30" target="_blank" rel="noopener">Email</a>
+            <button id="detail-delete" class="ml-auto rounded-md border border-red-400/30 bg-red-400/[0.05] px-3 py-2 text-xs text-red-300 transition hover:bg-red-400/[0.10]">Delete</button>
+          </div>
+          <p id="detail-msg" class="mt-3 hidden text-xs text-teal-light"></p>
+        </aside>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  import { supabase, supabaseConfigured, type Lead } from '../lib/supabase';
+
+  const loginBox = document.getElementById('login-box')!;
+  const loginForm = document.getElementById('login-form') as HTMLFormElement;
+  const loginEmail = document.getElementById('login-email') as HTMLInputElement;
+  const loginSubmit = document.getElementById('login-submit') as HTMLButtonElement;
+  const loginMsg = document.getElementById('login-msg')!;
+  const loginErr = document.getElementById('login-err')!;
+  const configErr = document.getElementById('config-err')!;
+  const userEmailEl = document.querySelector('[data-user-email]')!;
+  const logoutBtn = document.getElementById('logout-btn')!;
+  const leadsApp = document.getElementById('leads-app')!;
+  const tbody = document.getElementById('leads-tbody')!;
+  const countEl = document.getElementById('leads-count')!;
+  const emptyEl = document.getElementById('empty-state')!;
+  const refreshBtn = document.getElementById('refresh-btn')!;
+
+  const detail = document.getElementById('lead-detail')!;
+  const detailEmail = document.getElementById('detail-email')!;
+  const detailMeta = document.getElementById('detail-meta')!;
+  const detailStatus = document.getElementById('detail-status') as HTMLSelectElement;
+  const detailMessage = document.getElementById('detail-message')!;
+  const detailNotes = document.getElementById('detail-notes') as HTMLTextAreaElement;
+  const detailSave = document.getElementById('detail-save') as HTMLButtonElement;
+  const detailDelete = document.getElementById('detail-delete') as HTMLButtonElement;
+  const detailMailto = document.getElementById('detail-mailto') as HTMLAnchorElement;
+  const detailMsg = document.getElementById('detail-msg')!;
+
+  let currentFilter: string = 'all';
+  let allLeads: Lead[] = [];
+  let currentLead: Lead | null = null;
+
+  if (!supabaseConfigured || !supabase) {
+    configErr.textContent = 'Supabase is not configured. Set PUBLIC_SUPABASE_URL and PUBLIC_SUPABASE_ANON_KEY in landing/.env, rebuild and redeploy.';
+    configErr.classList.remove('hidden');
+    loginSubmit.disabled = true;
+  } else {
+    init();
+  }
+
+  async function init() {
+    if (!supabase) return;
+    const { data: { session } } = await supabase.auth.getSession();
+    if (session) showApp(session.user.email || '—');
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      if (session) showApp(session.user.email || '—');
+      else showLogin();
+    });
+
+    loginForm.addEventListener('submit', onLogin);
+    logoutBtn.addEventListener('click', onLogout);
+    refreshBtn.addEventListener('click', loadLeads);
+    document.querySelectorAll('[data-filter]').forEach((b) => {
+      b.addEventListener('click', () => {
+        currentFilter = (b as HTMLButtonElement).dataset.filter || 'all';
+        document.querySelectorAll('[data-filter]').forEach((x) => {
+          (x as HTMLElement).classList.toggle('bg-ink-800', x === b);
+          (x as HTMLElement).classList.toggle('text-chalk', x === b);
+          (x as HTMLElement).classList.toggle('text-chalk-dim', x !== b);
+        });
+        render();
+      });
+    });
+
+    document.querySelectorAll('[data-detail-close]').forEach((el) => {
+      el.addEventListener('click', () => { detail.classList.add('hidden'); });
+    });
+    detailSave.addEventListener('click', saveLead);
+    detailDelete.addEventListener('click', deleteLead);
+  }
+
+  async function onLogin(e: Event) {
+    e.preventDefault();
+    if (!supabase) return;
+    loginSubmit.disabled = true;
+    loginMsg.classList.add('hidden');
+    loginErr.classList.add('hidden');
+    const email = loginEmail.value.trim();
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: { emailRedirectTo: window.location.href },
+    });
+    if (error) {
+      loginErr.textContent = error.message;
+      loginErr.classList.remove('hidden');
+    } else {
+      loginMsg.textContent = `Magic link sent to ${email}. Check your inbox.`;
+      loginMsg.classList.remove('hidden');
+    }
+    loginSubmit.disabled = false;
+  }
+
+  async function onLogout() {
+    if (!supabase) return;
+    await supabase.auth.signOut();
+  }
+
+  function showLogin() {
+    loginBox.classList.remove('hidden');
+    leadsApp.classList.add('hidden');
+    logoutBtn.classList.add('hidden');
+    userEmailEl.textContent = '—';
+  }
+
+  function showApp(email: string) {
+    loginBox.classList.add('hidden');
+    leadsApp.classList.remove('hidden');
+    logoutBtn.classList.remove('hidden');
+    userEmailEl.textContent = email;
+    loadLeads();
+  }
+
+  async function loadLeads() {
+    if (!supabase) return;
+    const { data, error } = await supabase.from('leads').select('*').order('created_at', { ascending: false });
+    if (error) { console.error(error); return; }
+    allLeads = (data as Lead[]) || [];
+    render();
+  }
+
+  function render() {
+    const filtered = currentFilter === 'all' ? allLeads : allLeads.filter((l) => l.status === currentFilter);
+    countEl.textContent = `${filtered.length} lead${filtered.length === 1 ? '' : 's'}`;
+    tbody.innerHTML = '';
+    if (!filtered.length) {
+      emptyEl.classList.remove('hidden');
+      return;
+    }
+    emptyEl.classList.add('hidden');
+    for (const l of filtered) {
+      const tr = document.createElement('tr');
+      tr.className = 'cursor-pointer border-t border-chalk/5 transition hover:bg-ink-800/40';
+      const date = new Date(l.created_at).toLocaleString();
+      tr.innerHTML = `
+        <td class="px-4 py-3 font-mono text-xs text-chalk-mute">${date}</td>
+        <td class="px-4 py-3 text-chalk">${escape(l.email)}</td>
+        <td class="px-4 py-3 text-chalk-dim">${escape(l.company || '—')}</td>
+        <td class="px-4 py-3"><span class="rounded-full bg-ink-800 px-2 py-0.5 text-xs text-chalk-dim">${l.source}</span></td>
+        <td class="px-4 py-3 font-mono text-xs text-chalk-dim">${l.team_size ?? '—'}</td>
+        <td class="px-4 py-3"><span class="rounded-full px-2 py-0.5 text-xs ${statusColor(l.status)}">${l.status}</span></td>
+      `;
+      tr.addEventListener('click', () => openDetail(l));
+      tbody.appendChild(tr);
+    }
+  }
+
+  function statusColor(s: string) {
+    switch (s) {
+      case 'new': return 'bg-teal/15 text-teal-light';
+      case 'qualified': return 'bg-navy/20 text-navy-light';
+      case 'poc': return 'bg-violet/15 text-violet-light';
+      case 'won': return 'bg-emerald-400/15 text-emerald-300';
+      case 'lost': return 'bg-red-400/15 text-red-300';
+      default: return 'bg-ink-800 text-chalk-dim';
+    }
+  }
+
+  function escape(s: string | null) {
+    if (!s) return '';
+    return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!));
+  }
+
+  function openDetail(l: Lead) {
+    currentLead = l;
+    detail.classList.remove('hidden');
+    detailEmail.textContent = l.email;
+    detailStatus.value = l.status;
+    detailNotes.value = l.notes || '';
+    detailMessage.textContent = l.message || '—';
+    detailMailto.href = `mailto:${l.email}?subject=Vard%20—%20${l.source}%20follow-up`;
+    detailMsg.classList.add('hidden');
+
+    const features = Array.isArray(l.features) ? l.features.join(', ') : '';
+    detailMeta.innerHTML = `
+      <div><span class="text-chalk-mute">Name</span><div class="text-chalk">${escape(l.name) || '—'}</div></div>
+      <div><span class="text-chalk-mute">Company</span><div class="text-chalk">${escape(l.company) || '—'}</div></div>
+      <div><span class="text-chalk-mute">Source</span><div class="text-chalk">${l.source}</div></div>
+      <div><span class="text-chalk-mute">Team size</span><div class="text-chalk">${l.team_size ?? '—'}</div></div>
+      <div class="col-span-2"><span class="text-chalk-mute">Features wanted</span><div class="text-chalk">${features || '—'}</div></div>
+      <div class="col-span-2"><span class="text-chalk-mute">Created</span><div class="text-chalk">${new Date(l.created_at).toLocaleString()}</div></div>
+      <div class="col-span-2"><span class="text-chalk-mute">Lang · UA</span><div class="text-chalk text-[10px] font-mono break-all">${l.lang || '—'} · ${escape(l.user_agent) || '—'}</div></div>
+    `;
+  }
+
+  async function saveLead() {
+    if (!currentLead || !supabase) return;
+    detailSave.disabled = true;
+    const { error } = await supabase.from('leads').update({
+      status: detailStatus.value,
+      notes: detailNotes.value || null,
+    }).eq('id', currentLead.id);
+    if (error) {
+      detailMsg.textContent = error.message;
+      detailMsg.classList.remove('hidden');
+      detailMsg.className = 'mt-3 text-xs text-red-300';
+    } else {
+      detailMsg.textContent = 'Saved';
+      detailMsg.classList.remove('hidden');
+      detailMsg.className = 'mt-3 text-xs text-teal-light';
+      await loadLeads();
+    }
+    detailSave.disabled = false;
+  }
+
+  async function deleteLead() {
+    if (!currentLead || !supabase) return;
+    if (!confirm(`Delete lead from ${currentLead.email}?`)) return;
+    const { error } = await supabase.from('leads').delete().eq('id', currentLead.id);
+    if (error) { alert(error.message); return; }
+    detail.classList.add('hidden');
+    await loadLeads();
+  }
+</script>

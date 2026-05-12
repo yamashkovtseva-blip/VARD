@@ -4,11 +4,21 @@ import { useTranslations, type Lang } from '../i18n/translations';
 
 interface Props {
   lang?: Lang;
+  pageTitle?: string;
+  pageDescription?: string;
+  canonicalPath?: string;
+  altPath?: string;
 }
 
-const { lang = 'en' } = Astro.props;
+const { lang = 'en', pageTitle, pageDescription, canonicalPath = '/', altPath } = Astro.props;
 const t = useTranslations(lang);
 const base = import.meta.env.BASE_URL;
+
+const title = pageTitle ?? t.meta.title;
+const description = pageDescription ?? t.meta.description;
+const enHref = `https://vard.io${canonicalPath}`;
+const ruHref = `https://vard.io/ru${altPath ?? canonicalPath}`;
+const currentHref = lang === 'ru' ? ruHref : enHref;
 ---
 
 <!doctype html>
@@ -18,16 +28,17 @@ const base = import.meta.env.BASE_URL;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" href={`${base}logo.png`} />
     <meta name="generator" content={Astro.generator} />
-    <title>{t.meta.title}</title>
-    <meta name="description" content={t.meta.description} />
-    <meta property="og:title" content={t.meta.title} />
-    <meta property="og:description" content={t.meta.description} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://vard.io" />
+    <meta property="og:url" content={currentHref} />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="alternate" hreflang="en" href="https://vard.io/" />
-    <link rel="alternate" hreflang="ru" href="https://vard.io/ru/" />
-    <link rel="alternate" hreflang="x-default" href="https://vard.io/" />
+    <link rel="canonical" href={currentHref} />
+    <link rel="alternate" hreflang="en" href={enHref} />
+    <link rel="alternate" hreflang="ru" href={ruHref} />
+    <link rel="alternate" hreflang="x-default" href={enHref} />
     <link rel="preconnect" href="https://rsms.me/" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
   </head>

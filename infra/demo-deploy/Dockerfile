@@ -1,7 +1,7 @@
 # Production-grade frontend image for the Vard demo.
 # Replaces the `vite` dev-server currently exposed at vard.ru.tuna.am.
 #
-# Build context: the product repo (github.com/nborodulin471/vard).
+# Build context: the product repo (github.com/smarianna24/VARD).
 # Build:  docker build -f infra/demo-deploy/Dockerfile -t vard-frontend:prod .
 
 # ──────────────────────────────────────────────────────────────────

@@ -5,9 +5,9 @@ const { lang = 'en' } = Astro.props;
 const t = useTranslations(lang);
 
 const tierMeta = [
-  { highlight: false, href: 'https://github.com/nborodulin471/vard' },
-  { highlight: true,  href: '#contact' },
-  { highlight: false, href: '#contact' },
+  { highlight: false, href: 'https://github.com/smarianna24/VARD', source: null as null | string },
+  { highlight: true,  href: '#', source: 'trial' },
+  { highlight: false, href: '#', source: 'sales' },
 ];
 
 const tiers = t.pricing.tiers.map((tier, i) => ({ ...tier, ...tierMeta[i] }));
@@ -52,7 +52,11 @@ const rubNote = '≈ по курсу 90 ₽/$. Для РФ-клиентов — 
         <p class="mt-1 text-xs text-chalk-mute">{tier.period}</p>
         <p class="mt-3 text-sm text-chalk-dim">{tier.pitch}</p>
 
-        <a href={tier.href} class={`mt-5 flex w-full items-center justify-center rounded-md px-4 py-2.5 text-sm font-medium transition ${tier.highlight ? 'bg-chalk text-ink-950 hover:bg-white' : 'border border-chalk/15 bg-ink-800/40 text-chalk hover:border-chalk/30'}`}>
+        <a
+          href={tier.href}
+          data-lead-form={tier.source ?? undefined}
+          class={`mt-5 flex w-full items-center justify-center rounded-md px-4 py-2.5 text-sm font-medium transition ${tier.highlight ? 'bg-chalk text-ink-950 hover:bg-white' : 'border border-chalk/15 bg-ink-800/40 text-chalk hover:border-chalk/30'}`}
+        >
           {tier.cta}
         </a>
 
