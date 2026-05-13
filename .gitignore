@@ -9,6 +9,7 @@ presentations/dist/strategy/
 **/node_modules/
 **/.astro/
 **/.slidev/
+supabase/.temp/
 
 # Keep landing/dist and presentations/dist (without strategy/) for GitHub Pages
 
